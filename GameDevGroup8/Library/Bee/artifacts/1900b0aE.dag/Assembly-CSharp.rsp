@@ -357,8 +357,9 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"E:/Unity/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"E:/Unity/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/characters/player/PlayerController.cs"
 "Assets/characters/skeleton/skeleton_idle.cs"
+"Assets/player/behaviors/PlayerController.cs"
+"Assets/player/behaviors/PlayerStats.cs"
 "Assets/Structure/arena/FlickeringLight.cs"
 -langversion:9.0
 
