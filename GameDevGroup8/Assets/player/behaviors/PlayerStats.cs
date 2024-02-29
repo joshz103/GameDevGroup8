@@ -42,6 +42,11 @@ public class playerstats : MonoBehaviour
         return offense;
     }
 
+    public string getOffenseStr()
+    {
+        return string.Format("{0:N2}", offense);
+    }
+
     public void addOffense(float value)
     {
         offense += value;
@@ -52,6 +57,11 @@ public class playerstats : MonoBehaviour
         return defense;
     }
 
+    public string getDefenseStr()
+    {
+        return string.Format("{0:N2}", defense);
+    }
+
     public void addDefense(float value)
     {
         defense += value;
@@ -60,6 +70,11 @@ public class playerstats : MonoBehaviour
     public float getSpeed()
     {
         return speed;
+    }
+
+    public string getSpeedStr()
+    {
+        return string.Format("{0:N2}", speed);
     }
 
     public void addSpeed(float value)
@@ -80,6 +95,11 @@ public class playerstats : MonoBehaviour
     public float getLuck()
     {
         return luck;
+    }
+
+    public string getLuckStr()
+    {
+        return string.Format("{0:N2}", luck);
     }
     public void addLuck(float value)
     {
