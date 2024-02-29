@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    //class might go unused, not sure yet
+
     private playerstats playerStat;
     private float maxHealth;
     private float health;

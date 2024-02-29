@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class playerstats : MonoBehaviour
 {
+    public GameObject damageFlash;
+    private DamageVisual damageVisual;
+
     [SerializeField] private float offense;
     [SerializeField] private float defense;
     [SerializeField] private float speed;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
     [SerializeField] private float luck;
     [SerializeField] private float jumpHeight; //This stat will likely be hidden from the player and never change
@@ -18,12 +22,25 @@ public class playerstats : MonoBehaviour
     private float baseLuck = 1f;
     private float baseJumpHeight = 8f;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
         applyBaseStats();
+        damageVisual = damageFlash.GetComponent<DamageVisual>();
+    }
+
+    private void Update()
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
     }
 
     private void applyBaseStats() //Run on start to apply base character stats. Having 0 speed is no fun
@@ -32,6 +49,7 @@ public class playerstats : MonoBehaviour
         defense += baseDefense;
         speed += baseSpeed;
         maxHealth += basemaxHealth;
+        currentHealth += basemaxHealth;
         luck += baseLuck;
         jumpHeight += baseJumpHeight;
     }
@@ -92,6 +110,11 @@ public class playerstats : MonoBehaviour
         maxHealth += value;
     }
 
+    public string getMaxHealthStr()
+    {
+        return string.Format("{0:N0}", maxHealth);
+    }
+
     public float getLuck()
     {
         return luck;
@@ -113,6 +136,30 @@ public class playerstats : MonoBehaviour
     public void addJumpHeight(float value)
     {
         jumpHeight += value;
+    }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
+    public void addCurrentHealth(float value)
+    {
+        currentHealth += value;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
+    public void damage(float value)
+    {
+        currentHealth -= value;
+        damageVisual.damageFlash();
+    }
+
+    public string getCurrentHealthStr()
+    {
+        return string.Format("{0:N0}", currentHealth);
     }
 
 }

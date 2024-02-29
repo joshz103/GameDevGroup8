@@ -10,10 +10,14 @@ public class HUD_Offense : MonoBehaviour
     private TextMeshProUGUI textDef;
     private TextMeshProUGUI textSpeed;
     private TextMeshProUGUI textLuck;
+    private TextMeshProUGUI textMaxHealth;
+    private TextMeshProUGUI textCurrentHealth;
     public GameObject offenseStr;
     public GameObject defenseStr;
     public GameObject speedStr;
     public GameObject luckStr;
+    public GameObject maxHealthStr;
+    public GameObject currentHealthStr;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,8 @@ public class HUD_Offense : MonoBehaviour
         textDef = defenseStr.GetComponent<TextMeshProUGUI>();
         textSpeed = speedStr.GetComponent<TextMeshProUGUI>();
         textLuck = luckStr.GetComponent<TextMeshProUGUI>();
+        textMaxHealth = maxHealthStr.GetComponent<TextMeshProUGUI>();
+        textCurrentHealth = currentHealthStr.GetComponent<TextMeshProUGUI>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
     }
 
@@ -32,5 +38,7 @@ public class HUD_Offense : MonoBehaviour
         textDef.text = stats.getDefenseStr();
         textSpeed.text = stats.getSpeedStr();
         textLuck.text = stats.getLuckStr();
+        textMaxHealth.text = stats.getMaxHealthStr();
+        textCurrentHealth.text = stats.getCurrentHealthStr();
     }
 }
