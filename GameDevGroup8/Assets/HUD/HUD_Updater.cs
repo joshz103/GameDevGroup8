@@ -40,5 +40,20 @@ public class HUD_Offense : MonoBehaviour
         textLuck.text = stats.getLuckStr();
         textMaxHealth.text = stats.getMaxHealthStr();
         textCurrentHealth.text = stats.getCurrentHealthStr();
+
+        if ((stats.getCurrentHealth() / stats.getMaxHealth()) >= 0.66f)
+        {
+            textCurrentHealth.color = Color.white;
+        }
+        else if (((stats.getCurrentHealth() / stats.getMaxHealth()) < 0.66f) && ((stats.getCurrentHealth() / stats.getMaxHealth()) > 0.33f))
+            {
+            textCurrentHealth.color = Color.yellow;
+        }
+        else if (((stats.getCurrentHealth() / stats.getMaxHealth()) < 0.33f))
+        {
+            textCurrentHealth.color = Color.red;
+        }
+
+
     }
 }

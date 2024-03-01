@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +19,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private playerstats playerStat;
+    public Animator animator;
+    private playerstats stats;
 
     private Vector2 input;
     private CharacterController characterController;
@@ -26,9 +30,16 @@ public class PlayerController : MonoBehaviour
     private float movementMultiplier;
     public float currentSpeed;
     private float acceleration;
+    private float accelerationVal = 12.5f;
     private bool isMoving;
     private bool isSprinting;
+    private bool isAttack1;
     public float targetSpeed;
+    private bool canMove = true;
+    private bool canAttack = true;
+    private bool isDead = false;
+    private bool isAttacking = false;
+    public PlayerAttackDamage playerAttackDamage;
 
     //[SerializeField] private Movement movement; --changed this, unused now. Didn't play well with stats
 
@@ -36,8 +47,8 @@ public class PlayerController : MonoBehaviour
     private float currentVelocity;
 
     private float gravity = -1.0f;
-    private float gravityMultiplier = 15.0f;
-    private float y_velocity;
+    private float gravityMultiplier = 20.0f;
+    [SerializeField]private float y_velocity;
     private float terminalVelocity = -30f;
 
     private float jumpPower;
@@ -52,7 +63,9 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerStat = GetComponent<playerstats>();
         movementMultiplier = 2f;
-        acceleration = 12.5f;
+        acceleration = accelerationVal;
+        animator = GetComponent<Animator>();
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
     }
 
     // Update is called once per frame. Calls all these methods every frame to update movement, rotation, and gravity. Any method with time.Deltatime will make adjustments independant of framerate.
@@ -62,30 +75,52 @@ public class PlayerController : MonoBehaviour
         ApplyRotation();
         ApplyMovement();
         ApplyStats();
+
+        if (playerStat.getCurrentHealth() <= 0)
+        {
+            ApplyDeath();
+        }
+
+        //Epic system where (if we want to) we can revive the player by making their health go above 0.
+        if (isDead && (playerStat.getCurrentHealth() > 0))
+        {
+            StartCoroutine(ApplyRevive());
+        }
+
+
     }
 
     //Called every frame to make the player face where they are moving. smoothTime controls how quickly the player turns.
     private void ApplyRotation()
     {
-        if (input.sqrMagnitude == 0) return;
-        var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        if (canMove && !isDead)
+        {
+            if (input.sqrMagnitude == 0) return;
+            var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
     }
 
     //Called every frame to apply movement to the player. Base speed is set in the speed variable while sprint is handled by the Movement struct.
     private void ApplyMovement()
     {
-        if (isMoving && !isSprinting)
+        if (isMoving && !isSprinting && canMove)
         {
+            animator.SetBool("isSprinting", false);
+            animator.SetBool("isWalking", true);
             targetSpeed = speed;
         }
-        else if (isMoving && isSprinting)
+        else if (isMoving && isSprinting && canMove)
         {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isSprinting", true);
             targetSpeed = speed * movementMultiplier;
         }
         else
         {
+            animator.SetBool("isSprinting", false);
+            animator.SetBool("isWalking", false);
             targetSpeed = 0;
         }
 
@@ -94,16 +129,24 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementGravity = new Vector3(0f, direction.y, 0f);      //The .Move function affects X, Z, and for some reason Y. Had to separate into 2 move functions so sprint doesn't affect your gravity scale!
 
-
-        //moveXAccel = Mathf.MoveTowards(moveXAccel, direction.x, 0.25f * Time.deltaTime);
-        //moveZAccel = Mathf.MoveTowards(moveZAccel, direction.z, 0.25f * Time.deltaTime);
-
         Vector3 movementXZ = new Vector3(direction.x, 0f, direction.z);
-        //Vector3 movementXZ = new Vector3(moveXAccel, 0f, moveZAccel);
 
-        characterController.Move(movementXZ * currentSpeed * Time.deltaTime);
-        //Debug.Log(movementXZ * currentSpeed * Time.deltaTime);
+        if (canMove && !isDead)
+        {
+            characterController.Move(movementXZ * currentSpeed * Time.deltaTime);
+        }
+
         characterController.Move(movementGravity * Time.deltaTime);
+
+        if (!characterController.isGrounded)
+        {
+            animator.SetBool("isAirborne", true);
+        }
+        else
+        {
+            animator.SetBool("isAirborne", false);
+        }
+
     }
 
     //Called every frame to apply gravity to player. Checks if the player is grounded and their Y velocity is less than 0 (Velocity is set to -1 when grounded).
@@ -122,6 +165,16 @@ public class PlayerController : MonoBehaviour
             }
         }
         direction.y = y_velocity;
+
+        //Fall damage
+        if (y_velocity <= terminalVelocity)
+        {
+            if (y_velocity < 0.01 && !isDead)
+            {
+                stats.damage(999f);
+            }
+        }
+
     }
 
     //******************************
@@ -148,6 +201,12 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        if (isDead)
+        {
+            return;
+        }
+
         y_velocity += jumpPower;
     }
 
@@ -159,11 +218,56 @@ public class PlayerController : MonoBehaviour
         isSprinting = context.started || context.performed;
     }
 
+    //******************************
+    //ATTACK1 - Ground
+    //******************************
+    public void Attack1(InputAction.CallbackContext context)
+    {
+        if (characterController.isGrounded && canAttack)
+        {
+            isAttack1 = context.started || context.performed;
+            playerAttackDamage.enableHitbox();
+            animator.SetBool("isAttack1", true);
+            isAttacking = true;
+            canMove = false;
+            canAttack = false;
+            StartCoroutine(attack1False());
+        }
+    }
+
+    IEnumerator attack1False()
+    {
+        yield return new WaitForSeconds(0.65f);
+        animator.SetBool("isAttack1", false);
+        isAttacking = false;
+        canMove = true;
+        canAttack = true;
+    }
+
+    public bool isPlayerAttacking()
+    {
+        return isAttacking;
+    }
+
     //Applies stats
     public void ApplyStats()
     {
         speed = playerStat.getSpeed();
         jumpPower = playerStat.getJumpHeight();
+    }
+
+    public void ApplyDeath()
+    {
+        isDead = true;
+        animator.SetBool("isDead", true);
+    }
+    IEnumerator ApplyRevive()
+    {
+        animator.SetBool("isDead", false);
+        animator.SetBool("isReviving", true);
+        yield return new WaitForSeconds(0.1f);
+        isDead = false;
+        animator.SetBool("isReviving", false);
     }
 
     //******************************

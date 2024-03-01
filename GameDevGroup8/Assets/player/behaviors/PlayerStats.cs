@@ -6,6 +6,7 @@ public class playerstats : MonoBehaviour
 {
     public GameObject damageFlash;
     private DamageVisual damageVisual;
+    public PlayerSounds playerSounds;
 
     [SerializeField] private float offense;
     [SerializeField] private float defense;
@@ -155,6 +156,7 @@ public class playerstats : MonoBehaviour
     {
         currentHealth -= value;
         damageVisual.damageFlash();
+        playerSounds.playDamageSound();
     }
 
     public string getCurrentHealthStr()
