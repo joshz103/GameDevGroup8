@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -9,6 +11,8 @@ public class EnemyBehavior : MonoBehaviour
     public EnemyHP hp;
     public Animator animator;
     private bool dead = false;
+
+    public EnemyAttackHitbox attackHitbox;
 
     public NavMeshAgent agent;
     public Transform player;
@@ -30,6 +34,17 @@ public class EnemyBehavior : MonoBehaviour
     private bool playerInSightRange;
     private bool playerInAttackRange;
 
+    private bool canMove = true;
+    private bool canTurnStationary = true;
+    //private bool canAttack = true;
+
+    //public float attackCooldown;
+
+    public float turnSpeed;
+
+    public float aimTime;
+
+    public float attackDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -48,20 +63,40 @@ public class EnemyBehavior : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
-        if(!playerInSightRange && !playerInAttackRange)
+        //Movement Animation
+        if (agent.remainingDistance > 0)
         {
-            Patrolling();
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
 
-        if(playerInSightRange && !playerInAttackRange)
+        if (canMove)
         {
-            ChasePlayer();
+            //State triggers
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                Patrolling();
+                animator.SetBool("isAttacking", false);
+            }
+
+            if (playerInSightRange && !playerInAttackRange)
+            {
+                ChasePlayer();
+                animator.SetBool("isAttacking", false);
+                //animator.SetBool("isMoving", true);
+            }
         }
 
-        if(playerInSightRange && playerInAttackRange)
+        if (playerInSightRange && playerInAttackRange)
         {
             Attacking();
+            //animator.SetBool("isAttacking", true);
+            //animator.SetBool("isMoving", false);
         }
+
 
     }
 
@@ -125,15 +160,70 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Attacking()
     {
-        agent.SetDestination(transform.position);
-        transform.LookAt(player);
+        if (!alreadyAttacked)
+        {
+            initiateAttack();
+        }
+
+        if(canTurnStationary)
+        {
+            agent.SetDestination(transform.position);
+            Vector3 relativePos = player.transform.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnSpeed * Time.deltaTime);
+        }
+
+
     }
+
+    private void initiateAttack()
+    {
+        //animator.SetBool("isAttacking", true);
+        canMove = false;
+        alreadyAttacked = true;
+        canTurnStationary = true;
+        
+        StartCoroutine(cooldown());
+        StartCoroutine(animationTrigger());
+        StartCoroutine(turningStationary());
+    }
+
+    IEnumerator cooldown()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        alreadyAttacked = false;
+        canMove = true;
+    }
+
+    IEnumerator animationTrigger()
+    {
+        animator.SetBool("isAttacking", true);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("isAttacking", false);
+    }
+
+    IEnumerator turningStationary()
+    {
+        yield return new WaitForSeconds(aimTime);
+        canTurnStationary = false;
+    }
+
+    public void triggerHitbox() //This is triggered through an animation event that is tied to whatever frame of the animation should deal damage!
+    {
+        attackHitbox.triggerHitbox();
+    }
+
+    public float getAttackDamage()
+    {
+        return attackDamage;
+    }
+
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = UnityEngine.Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
+        Gizmos.color = UnityEngine.Color.yellow;
         Gizmos.DrawWireSphere (transform.position, sightRange);
     }
 
