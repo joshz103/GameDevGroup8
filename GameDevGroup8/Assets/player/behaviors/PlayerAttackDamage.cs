@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,14 @@ public class PlayerAttackDamage : MonoBehaviour
     public GameObject hitbox;
     private playerstats stats;
     private PlayerController playerController;
+    private PlayerSounds soundPlayer;
+
+    public GameObject damagePopupPrefab;
+
+    //TestSpawnText damagePopup;
+    
+    private float damageMult;
+    private float recentDMG;
 
     private float playerDamage;
 
@@ -18,6 +27,7 @@ public class PlayerAttackDamage : MonoBehaviour
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
+        soundPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSounds>();
     }
 
     void Update()
@@ -37,17 +47,35 @@ public class PlayerAttackDamage : MonoBehaviour
         StartCoroutine(removeHitbox());
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
+        damageMult = playerDamage;
+        float rng = UnityEngine.Random.Range(0f, 100f);
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && other.GetComponent<EnemyBehavior>().isDead() == false)
         {
-            other.GetComponent<EnemyHP>().damage(playerDamage);
-            Debug.Log("Player dealt " + playerDamage + " damage!");
+            if (stats.getLuck() > rng)
+            {
+                damageMult *= 2f;
+                other.GetComponent<EnemyHP>().damage(damageMult, true);
+                soundPlayer.playCritSound();
+                recentDMG = damageMult;
+                Debug.Log("Critical Hit!");
+            }
+            else
+            {
+                recentDMG = damageMult;
+                other.GetComponent<EnemyHP>().damage(damageMult, false);
+            }
+            Instantiate(damagePopupPrefab);
+            soundPlayer.playDamageSound();
+            Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
         }
     }
 
-
+    public string getRecentDamageStr()
+    {
+        return string.Format("{0:N2}", recentDMG);
+    }
 
 }

@@ -7,14 +7,15 @@ public class EnemyHP : MonoBehaviour
     public float hp;
     public GameObject enemy;
     public PlayerAttackDamage playerAttackHitbox;
-    public PlayerSounds soundPlayer;
 
+    public PlayerSounds soundPlayer;
     //private int attackID = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //playerAttackHitbox = GetComponent<PlayerAttackDamage>();
+        
     }
 
     // Update is called once per frame
@@ -23,10 +24,9 @@ public class EnemyHP : MonoBehaviour
         
     }
 
-    public void damage(float dmg)
+    public void damage(float dmg, bool crit)
     {
-            hp -= dmg;
-            soundPlayer.playDamageSound();
+        hp -= dmg;
     }
 
     public float getHP()

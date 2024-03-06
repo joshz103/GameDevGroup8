@@ -28,6 +28,7 @@ public class playerstats : MonoBehaviour
     {
         applyBaseStats();
         damageVisual = damageFlash.GetComponent<DamageVisual>();
+        playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSounds>();
     }
 
     private void Update()
