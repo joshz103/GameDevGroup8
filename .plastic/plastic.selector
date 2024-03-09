@@ -1,0 +1,4 @@
+repository "GameDevGroup8@UNCC_Game_Dev_Group8@cloud"
+  path "/"
+    br "/main"
+    co "/main"
