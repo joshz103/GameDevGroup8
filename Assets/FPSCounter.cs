@@ -9,12 +9,14 @@ public class FPSCounter : MonoBehaviour
 
     private int lastFrameIndex;
     private float[] frameDeltaTimeArray;
-
+    public int maxFPS = 500;
 
     // Start is called before the first frame update
     void Start()
     {
         frameDeltaTimeArray = new float[50];
+        //QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = maxFPS;
     }
 
     // Update is called once per frame

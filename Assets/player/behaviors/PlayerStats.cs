@@ -20,7 +20,7 @@ public class playerstats : MonoBehaviour
 
     private float baseOffense = 1f;
     private float baseDefense = 1f;
-    private float baseSpeed = 2.5f;
+    private float baseSpeed = 1f;
     private float basemaxHealth = 10f;
     private float baseLuck = 1f;
     private float baseJumpHeight = 8f;

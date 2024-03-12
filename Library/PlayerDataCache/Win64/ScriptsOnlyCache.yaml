@@ -33,8 +33,6 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.PlayerInput
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
     - UnityEngine.InputSystem.UI.InputSystemUIInputModule
-    Unity.PlasticSCM.Editor.dll:
-    - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -117,6 +115,18 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: Move
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: Jump
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: Sprint
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: Attack1
   - assembly: Assembly-CSharp
     fullTypeName: PlayerController
     methodName: Move
@@ -224,27 +234,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5862}
     - Class: 114
-      Script: {instanceID: 6280}
+      Script: {instanceID: 6014}
     - Class: 114
-      Script: {instanceID: 6312}
+      Script: {instanceID: 6040}
     - Class: 114
-      Script: {instanceID: 6506}
+      Script: {instanceID: 6284}
     - Class: 114
-      Script: {instanceID: 7300}
+      Script: {instanceID: 6316}
     - Class: 114
-      Script: {instanceID: 7772}
+      Script: {instanceID: 6510}
     - Class: 114
-      Script: {instanceID: 7940}
+      Script: {instanceID: 7304}
     - Class: 114
-      Script: {instanceID: 8052}
+      Script: {instanceID: 7776}
     - Class: 114
-      Script: {instanceID: 8082}
+      Script: {instanceID: 7944}
     - Class: 114
-      Script: {instanceID: 8868}
+      Script: {instanceID: 8056}
     - Class: 114
-      Script: {instanceID: 9020}
+      Script: {instanceID: 8086}
     - Class: 114
-      Script: {instanceID: 151220}
+      Script: {instanceID: 8872}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1312,6 +1322,18 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: 0d1534ed7a905716bf1d9f8e8734f188
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Currency_Pickup
+  - hash:
+      serializedVersion: 2
+      Hash: 6aa5aabad30b3ae2a6e9fd86e7e018eb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: FPSCounter
+  - hash:
+      serializedVersion: 2
       Hash: 654cebef8aa88cb6cd0504505364d614
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
@@ -1904,18 +1926,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 0d1534ed7a905716bf1d9f8e8734f188
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Currency_Pickup
-  - hash:
-      serializedVersion: 2
-      Hash: e809fc29c75398920dc3c2fd5c5e3dbc
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: FPSCounter
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

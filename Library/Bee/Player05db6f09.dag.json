@@ -315,7 +315,7 @@
       "DisplayName": "Writing boot.config_tyr4.info",
       "ActionType": "WriteFile",
       "PayloadOffset": 83,
-      "PayloadLength": 13616,
+      "PayloadLength": 13544,
       "PayloadDebugContentSnippet": "{\"System.Object\":null,\"Bee.Tun",
       "Inputs": [],
       "Outputs": [
@@ -411,18 +411,18 @@
         "E:/Unity/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll",
         "E:/Unity/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll",
         "E:/Unity/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Cinemachine.dll",
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Cinemachine.dll",
+        "E:/GithubRepos/GameDevGroup8/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll",
         "E:/Unity/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/netstandard.dll",
         "E:/Unity/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Mono.Security.dll",
         "E:/Unity/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/System.ComponentModel.Composition.dll",
@@ -1328,7 +1328,7 @@
       "DisplayName": "Copying Assembly-CSharp.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Assembly-CSharp.dll"
@@ -1340,7 +1340,7 @@
       "DisplayName": "Copying Unity.AI.Navigation.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.AI.Navigation.dll"
@@ -1352,7 +1352,7 @@
       "DisplayName": "Copying Unity.VisualScripting.Core.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.VisualScripting.Core.dll"
@@ -1364,7 +1364,7 @@
       "DisplayName": "Copying UnityEngine.UI.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/UnityEngine.UI.dll"
@@ -1376,7 +1376,7 @@
       "DisplayName": "Copying Unity.VisualScripting.Flow.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.VisualScripting.Flow.dll"
@@ -1388,7 +1388,7 @@
       "DisplayName": "Copying Unity.Timeline.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.Timeline.dll"
@@ -1400,7 +1400,7 @@
       "DisplayName": "Copying Unity.InputSystem.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.InputSystem.dll"
@@ -1412,7 +1412,7 @@
       "DisplayName": "Copying Unity.InputSystem.ForUI.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.InputSystem.ForUI.dll"
@@ -1424,7 +1424,7 @@
       "DisplayName": "Copying Unity.TextMeshPro.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.TextMeshPro.dll"
@@ -1436,7 +1436,7 @@
       "DisplayName": "Copying Unity.VisualScripting.State.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.VisualScripting.State.dll"
@@ -1448,7 +1448,7 @@
       "DisplayName": "Copying Cinemachine.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Cinemachine.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/Bee/PlayerScriptAssemblies/Cinemachine.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Cinemachine.dll"
@@ -1460,7 +1460,7 @@
       "DisplayName": "Copying Unity.VisualScripting.Antlr3.Runtime.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/Josh Zeller/GameDevGroup8/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+        "E:/GithubRepos/GameDevGroup8/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
       ],
       "Outputs": [
         "C:/Users/Josh Zeller/Desktop/Builds/GameDevGroup8_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll"
@@ -1723,7 +1723,7 @@
       "Annotation": "WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info",
       "DisplayName": "Writing app.info",
       "ActionType": "WriteFile",
-      "PayloadOffset": 13788,
+      "PayloadOffset": 13716,
       "PayloadLength": 28,
       "PayloadDebugContentSnippet": "DefaultCompany\nGameDevGroup8",
       "Inputs": [],
@@ -2392,6 +2392,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/Player05db6f09.dag.json",
-  "PayloadsFile": "C:/Users/Josh Zeller/GameDevGroup8/Library/Bee/Player05db6f09.dag.payloads",
+  "PayloadsFile": "E:/GithubRepos/GameDevGroup8/Library/Bee/Player05db6f09.dag.payloads",
   "RelativePathToRoot": "../.."
 }

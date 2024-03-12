@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float speed;
     private float movementMultiplier;
     public float currentSpeed;
+    private float speedOffset = -0f;
     private float acceleration;
     private float accelerationVal = 12.5f;
     private bool isMoving;
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerStat = GetComponent<playerstats>();
-        movementMultiplier = 2f;
+        movementMultiplier = 3f;
         acceleration = accelerationVal;
         animator = GetComponent<Animator>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
@@ -109,13 +110,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isSprinting", false);
             animator.SetBool("isWalking", true);
-            targetSpeed = speed;
+            targetSpeed = speed + speedOffset;
         }
         else if (isMoving && isSprinting && canMove)
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isSprinting", true);
-            targetSpeed = speed * movementMultiplier;
+            targetSpeed = (speed + speedOffset) * movementMultiplier;
         }
         else
         {
@@ -207,8 +208,17 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        y_velocity += jumpPower;
+        animator.SetBool("isJumping", true);
     }
+
+    //Applied through an animation event!
+    public void ApplyJump()
+    {
+        y_velocity += jumpPower;
+        animator.SetBool("isJumping", false);
+    }
+
+
 
     //******************************
     //SPRINTING - Just changes the a bool to see if shift is being held
@@ -254,6 +264,7 @@ public class PlayerController : MonoBehaviour
     {
         speed = playerStat.getSpeed();
         jumpPower = playerStat.getJumpHeight();
+        animator.SetFloat("animSpeedMult", speed); 
     }
 
     public void ApplyDeath()
