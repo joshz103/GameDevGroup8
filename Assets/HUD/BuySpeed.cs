@@ -34,7 +34,7 @@ public class BuySpeed : MonoBehaviour
             stats.subtractMoney(cost);
 
             // Increase offense level
-            stats.addSpeed(1);
+            stats.addSpeed(0.10f);
         }
         else
         {

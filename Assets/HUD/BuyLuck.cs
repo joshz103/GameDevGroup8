@@ -33,7 +33,7 @@ public class BuyLuck : MonoBehaviour
             // Subtract cost from currency
             stats.subtractMoney(cost);
 
-            // Increase offense level
+            // Increase Luck level
             stats.addLuck(1);
         }
         else

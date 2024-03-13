@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BuyOffense : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class BuyOffense : MonoBehaviour
     
     private float currencyMultiplier = 1.5f;
 
+    public TMP_Text buttonText;
+
+    
+
     private void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
@@ -16,16 +21,22 @@ public class BuyOffense : MonoBehaviour
 
     public void BuyOffenseLevel()
     {
+        
         float currentCurrency = stats.getMoney();
         float currentOffense = stats.getOffense();
 
         int cost = 0;
-        if (currentOffense == 1){
+        if (currentOffense == 1)
+        {
             cost = 5;
-        }else{
+        }
+        else
+        {
             cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, currentOffense));
         }
 
+        // Update button text with the cost
+        
 
         // Check if player has enough currency to buy
         if (currentCurrency >= cost)
@@ -40,5 +51,11 @@ public class BuyOffense : MonoBehaviour
         {
             Debug.Log("Not enough currency to buy offense level!");
         }
+        
+    }
+
+    public void updateText(int cost)
+    {
+        buttonText.text = "Upgrade ($" + cost + ")";
     }
 }

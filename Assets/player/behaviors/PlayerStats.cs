@@ -115,6 +115,10 @@ public class playerstats : MonoBehaviour
         maxHealth += value;
     }
 
+    public void addHealth(float value){
+        currentHealth += value;
+    }
+
     public string getMaxHealthStr()
     {
         return string.Format("{0:N0}", maxHealth);
