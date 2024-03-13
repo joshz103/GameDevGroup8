@@ -124,7 +124,7 @@
                     "name": "",
                     "id": "112d73d6-da68-42c5-8998-712e2c9a04f8",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Attack1",

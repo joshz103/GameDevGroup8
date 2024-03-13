@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private float accelerationVal = 12.5f;
     private bool isMoving;
     private bool isSprinting;
-    private bool isAttack1;
+    //private bool isAttack1;
     public float targetSpeed;
     private bool canMove = true;
     private bool canAttack = true;
@@ -141,14 +141,32 @@ public class PlayerController : MonoBehaviour
 
         if (!characterController.isGrounded)
         {
+            //StartCoroutine(AirborneT());
+            //StopCoroutine(AirborneF());
             animator.SetBool("isAirborne", true);
         }
         else
         {
+            //StartCoroutine(AirborneF());
+            //StopCoroutine(AirborneT());
             animator.SetBool("isAirborne", false);
         }
 
     }
+
+    /*
+    IEnumerator AirborneT()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("isAirborne", true);
+    }
+
+    IEnumerator AirborneF()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("isAirborne", false);
+    }
+    */
 
     //Called every frame to apply gravity to player. Checks if the player is grounded and their Y velocity is less than 0 (Velocity is set to -1 when grounded).
     private void ApplyGravity()
@@ -229,28 +247,41 @@ public class PlayerController : MonoBehaviour
     }
 
     //******************************
-    //ATTACK1 - Ground
+    //ATTACK
     //******************************
     public void Attack1(InputAction.CallbackContext context)
     {
-        if (characterController.isGrounded && canAttack)
+        if (canAttack == false)
         {
-            isAttack1 = context.started || context.performed;
-            playerAttackDamage.enableHitbox();
-            animator.SetBool("isAttack1", true);
-            isAttacking = true;
-            canMove = false;
-            canAttack = false;
-            StartCoroutine(attack1False());
+            return;
         }
+
+        if (isDead)
+        {
+            return;
+        }
+
+        if (isAttacking)
+        {
+            return;
+        }
+
+        animator.SetBool("isAttack1", true);
     }
 
-    IEnumerator attack1False()
+    public void Attack()
     {
-        yield return new WaitForSeconds(0.65f);
+        playerAttackDamage.enableHitbox();
+        isAttacking = true;
+        //canMove = false;
+        canAttack = false;
+    }
+
+    public void AttackEnd() //Triggered at the last frame (or whatever frame you want) during an animation event.
+    {
         animator.SetBool("isAttack1", false);
         isAttacking = false;
-        canMove = true;
+        //canMove = true;
         canAttack = true;
     }
 

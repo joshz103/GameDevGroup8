@@ -6,7 +6,7 @@ public class playerstats : MonoBehaviour
 {
     public GameObject damageFlash;
     private DamageVisual damageVisual;
-    public PlayerSounds playerSounds;
+    private PlayerSounds playerSounds;
 
     [SerializeField] private float offense;
     [SerializeField] private float defense;
