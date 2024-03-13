@@ -2588,16 +2588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Offense:
-
-
-    HP:
-
-
-    Speed:
-
-
-    Luck: '
+  m_text: "Offense:\n\nHP:\n\nSpeed:\n\nLuck: \n\nCurrent $:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3386,6 +3377,7 @@ GameObject:
   - component: {fileID: 1568764456}
   - component: {fileID: 1568764455}
   - component: {fileID: 1568764454}
+  - component: {fileID: 1568764457}
   m_Layer: 5
   m_Name: BuyOffense
   m_TagString: Untagged
@@ -3457,7 +3449,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1568764455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1568764457}
+        m_TargetAssemblyTypeName: BuyOffense, Assembly-CSharp
+        m_MethodName: BuyOffenseLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1568764455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3496,6 +3500,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568764452}
   m_CullTransparentMesh: 1
+--- !u!114 &1568764457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568764452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcfca03a8091184d97ddac56b7e9fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1570722476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,8 +3547,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 83}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -25, y: 60}
+  m_SizeDelta: {x: 1920, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570722478
 MonoBehaviour:
@@ -4364,6 +4380,7 @@ GameObject:
   - component: {fileID: 2010181507}
   - component: {fileID: 2010181506}
   - component: {fileID: 2010181505}
+  - component: {fileID: 2010181508}
   m_Layer: 5
   m_Name: BuySpeed
   m_TagString: Untagged
@@ -4435,7 +4452,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2010181506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010181508}
+        m_TargetAssemblyTypeName: BuySpeed, Assembly-CSharp
+        m_MethodName: BuySpeedLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2010181506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4474,6 +4503,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010181503}
   m_CullTransparentMesh: 1
+--- !u!114 &2010181508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010181503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedbd8eefa8b73145945e42d2478998f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2033949745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,6 +4527,7 @@ GameObject:
   - component: {fileID: 2033949749}
   - component: {fileID: 2033949748}
   - component: {fileID: 2033949747}
+  - component: {fileID: 2033949750}
   m_Layer: 5
   m_Name: BuyLuck
   m_TagString: Untagged
@@ -4557,7 +4599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2033949748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2033949750}
+        m_TargetAssemblyTypeName: BuyLuck, Assembly-CSharp
+        m_MethodName: BuyLuckLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2033949748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4596,6 +4650,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033949745}
   m_CullTransparentMesh: 1
+--- !u!114 &2033949750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033949745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1058c95df8cf72649b71ef3d6fbc0d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079413060
 GameObject:
   m_ObjectHideFlags: 0

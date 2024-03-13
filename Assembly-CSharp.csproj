@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Structure\arena\FlickeringLight.cs" />
+     <Compile Include="Assets\HUD\BuyLuck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+     <Compile Include="Assets\HUD\BuySpeed.cs" />
      <Compile Include="Assets\player\behaviors\unused\PlayerHealth.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -87,8 +89,10 @@
      <Compile Include="Assets\HUD\ShopMenu.cs" />
      <Compile Include="Assets\collectables\currency1\Currency_Pickup.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+     <Compile Include="Assets\HUD\BuyHP.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+     <Compile Include="Assets\HUD\BuyOffense.cs" />
      <Compile Include="Assets\HUD\TestSpawnText.cs" />
      <Compile Include="Assets\player\behaviors\PlayerController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
