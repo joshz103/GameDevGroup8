@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     public float moveXAccel;
     public float moveZAccel;
 
+    //Spell objects
+    public GameObject earthspell;
+    private bool earthspellCooldown = false;
 
     // Start is called before the first frame update. Gets the ControllerController component from whatever object has this script. We can then reference it in the code.
     void Start()
@@ -141,32 +144,14 @@ public class PlayerController : MonoBehaviour
 
         if (!characterController.isGrounded)
         {
-            //StartCoroutine(AirborneT());
-            //StopCoroutine(AirborneF());
             animator.SetBool("isAirborne", true);
         }
         else
         {
-            //StartCoroutine(AirborneF());
-            //StopCoroutine(AirborneT());
             animator.SetBool("isAirborne", false);
         }
 
     }
-
-    /*
-    IEnumerator AirborneT()
-    {
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool("isAirborne", true);
-    }
-
-    IEnumerator AirborneF()
-    {
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool("isAirborne", false);
-    }
-    */
 
     //Called every frame to apply gravity to player. Checks if the player is grounded and their Y velocity is less than 0 (Velocity is set to -1 when grounded).
     private void ApplyGravity()
@@ -266,6 +251,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        animator.SetInteger("AttackIndex", UnityEngine.Random.Range(0, 3));
         animator.SetBool("isAttack1", true);
     }
 
@@ -312,19 +298,48 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isReviving", false);
     }
 
-    //******************************
-    //MOVEMENT - This handles sprint acceleration and speed to multiply movement by. Edit the variables in Unity once you select the player object. TODO: Grab values for speed from stats class
-    //******************************
-    /*
-    [Serializable]
-    public struct Movement
+    ///////////////////////////
+    /////// SPELLS
+    ///////////////////////////
+    public void disallowMovement()
     {
-        [HideInInspector] public float speed;
-        public float multiplier;
-        public float acceleration;
-
-        [HideInInspector]public bool isSprinting;
-        [HideInInspector]public float currentSpeed;
+        canMove = false;
+        canAttack = false;
     }
-    */
+
+    public void allowMovement()
+    {
+        canMove = true;
+        canAttack = true;
+    }
+
+
+    public void castEarthStart(InputAction.CallbackContext context)
+    {
+        if (earthspellCooldown == false)
+        {
+            animator.SetBool("isCastingEarth", true);
+            earthspellCooldown = true;
+            StartCoroutine(castEarthCooldown());
+        }
+    }
+
+    public void castEarth()
+    {
+        Instantiate(earthspell, gameObject.transform.position + (transform.forward * 2), gameObject.transform.rotation);
+        Debug.Log("ROCK");
+    }
+
+    public void castEarthEnd()
+    {
+        animator.SetBool("isCastingEarth", false);
+    }
+
+    IEnumerator castEarthCooldown()
+    {
+        yield return new WaitForSeconds(5f);
+        earthspellCooldown = false;
+    }
+
+
 }
