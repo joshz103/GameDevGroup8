@@ -171,6 +171,11 @@ public class playerstats : MonoBehaviour
         money += value;
     }
 
+    public void subtractMoney(int value)
+    {
+        money -= value;
+    }
+
     public void damage(float value)
     {
         currentHealth -= value;
