@@ -3457,6 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46540d68f0822054f95be349c1530308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 591601489}
 --- !u!1 &1227243750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1058c95df8cf72649b71ef3d6fbc0d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 985631373}
 --- !u!114 &1313121677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4601,6 +4603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedbd8eefa8b73145945e42d2478998f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 497231018}
 --- !u!114 &1710107310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,7 +5350,7 @@ MonoBehaviour:
   maxHealth: 0
   luck: 0
   jumpHeight: 0
-  money: 50
+  money: 5000
 --- !u!54 &1897219766
 Rigidbody:
   m_ObjectHideFlags: 0

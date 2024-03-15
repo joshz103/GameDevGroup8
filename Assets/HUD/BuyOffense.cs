@@ -19,6 +19,23 @@ public class BuyOffense : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
     }
 
+    void Update()
+    {
+        float currentCurrency = stats.getMoney();
+        float currentOffense = stats.getOffense();
+
+        int cost = 0;
+        if (currentOffense == 1)
+        {
+            cost = 5;
+        }
+        else
+        {
+            cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, currentOffense));
+        }
+        updateText(cost);
+    }
+
     public void BuyOffenseLevel()
     {
         
@@ -34,10 +51,6 @@ public class BuyOffense : MonoBehaviour
         {
             cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, currentOffense));
         }
-
-        // Update button text with the cost
-        
-
         // Check if player has enough currency to buy
         if (currentCurrency >= cost)
         {
@@ -46,6 +59,8 @@ public class BuyOffense : MonoBehaviour
 
             // Increase offense level
             stats.addOffense(1);
+
+            Debug.Log("Player purchased an offense upgrade!");
         }
         else
         {
