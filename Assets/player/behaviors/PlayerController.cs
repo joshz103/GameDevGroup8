@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded && y_velocity < 0.0f)
         {
             y_velocity = -1f;
+            animator.SetBool("isFallingLong", false);
         }
         else
         {
@@ -175,7 +176,8 @@ public class PlayerController : MonoBehaviour
         {
             if (y_velocity < 0.01 && !isDead)
             {
-                stats.damage(999f);
+                //stats.damage(999f);
+                animator.SetBool("isFallingLong", true);
             }
         }
 

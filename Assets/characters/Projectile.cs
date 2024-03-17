@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
-
+        Destroy(gameObject, 10f);
     }
 
     public void OnCollisionStay(Collision collision)

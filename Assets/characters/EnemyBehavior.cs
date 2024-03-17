@@ -62,11 +62,14 @@ public class EnemyBehavior : MonoBehaviour
     public int currencyDropChance;
     private bool hasDroppedItem = false;
 
+    private EnemyWaves waves;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        waves = GameObject.FindGameObjectWithTag("EnemyWaveSpawner").GetComponent<EnemyWaves>();
     }
 
     // Update is called once per frame
@@ -137,6 +140,11 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (hp.getHP() <= 0)
         {
+            if(dead == false)
+            {
+                waves.removeEnemyCount();
+            }
+
             animator.SetBool("isDead", true);
             dead = true;
             if (Random.Range(0, 100) < currencyDropChance && hasDroppedItem == false)

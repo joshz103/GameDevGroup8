@@ -275,7 +275,7 @@ MonoBehaviour:
     m_Bits: 128
   walkPointRange: 0
   timeBetweenAttacks: 4
-  sightRange: 15
+  sightRange: 100
   attackRange: 6
   turnSpeed: 3
   aimTime: 1
@@ -324,7 +324,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
