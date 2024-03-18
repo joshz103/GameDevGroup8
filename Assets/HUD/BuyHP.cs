@@ -8,9 +8,16 @@ public class BuyHP: MonoBehaviour
     
     private playerstats stats;
     
-    private float currencyMultiplier = 1.5f;
+    //private float currencyMultiplier = 1.5f;
 
     public TMP_Text buttonText;
+
+    public int upgradeVal = 1;
+
+    public AudioClip successSound;
+    public AudioClip failSound;
+
+    public AudioSource audio;
 
     private void Start()
     {
@@ -23,13 +30,14 @@ public class BuyHP: MonoBehaviour
         float currentHealth = stats.getCurrentHealth();
 
         int cost = 0;
-        if (currentHealth == 10)
+        if (currentHealth <= 10)
         {
             cost = 5;
         }
         else
         {
-            cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, (currentHealth / 10)));
+            //cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, (currentHealth / 10)));
+            cost = cost + upgradeVal + 5;
         }
         updateText(cost);
     }
@@ -43,7 +51,8 @@ public class BuyHP: MonoBehaviour
         if (currentHealth == 10){
             cost = 5;
         }else{
-            cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, (currentHealth / 10)));
+            //cost = Mathf.RoundToInt(5 * Mathf.Pow(currencyMultiplier, (currentHealth / 10)));
+            cost = cost + upgradeVal + 5;
         }
 
 
@@ -56,12 +65,14 @@ public class BuyHP: MonoBehaviour
             // Increase HP
             stats.addMaxHealth(5);
             stats.addHealth(5);
-
+            upgradeVal++;
             Debug.Log("Player purchased a health upgrade!");
+            audio.PlayOneShot(successSound, 0.25F);
         }
         else
         {
             Debug.Log("Not enough currency to buy more Health!");
+            audio.PlayOneShot(failSound, 0.25F);
         }
     }
 
