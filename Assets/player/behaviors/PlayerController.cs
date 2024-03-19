@@ -153,6 +153,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void setCurrentSpeed(float n) //Used for enemy pushback
+    {
+        currentSpeed = n;
+    }
+
     //Called every frame to apply gravity to player. Checks if the player is grounded and their Y velocity is less than 0 (Velocity is set to -1 when grounded).
     private void ApplyGravity()
     {

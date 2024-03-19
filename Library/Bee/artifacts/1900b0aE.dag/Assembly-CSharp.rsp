@@ -368,6 +368,7 @@
 "Assets/characters/skeleton/skeleton_idle.cs"
 "Assets/collectables/currency1/Currency_Pickup.cs"
 "Assets/collectables/offense_up/offense_up_collectable.cs"
+"Assets/EnemyPushback.cs"
 "Assets/EnemyWaves.cs"
 "Assets/FPSCounter.cs"
 "Assets/HUD/BuyHP.cs"

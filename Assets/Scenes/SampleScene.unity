@@ -1823,8 +1823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 8685610310869744409, guid: 8f7b8efd4068da14ba5ecd22d81506e2, type: 3}
-  - {fileID: 3026912253781771975, guid: 2d0b2a930e4e0f445af8ead8e80f1d42, type: 3}
+  - {fileID: 3087436138694387673, guid: cfad9ca6f573fd14fb5e3e541c4fad8b, type: 3}
+  - {fileID: 6570447689177925164, guid: 571b1e1c4e592764e8ebe89e362c5e63, type: 3}
   bosses: []
   enemySpawnpoint:
   - {fileID: 242859910}

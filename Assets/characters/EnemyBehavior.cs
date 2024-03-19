@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform player;
+    private PlayerController playerController;
     public LayerMask groundMask;
     public LayerMask playerMask;
 
@@ -68,6 +70,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         waves = GameObject.FindGameObjectWithTag("EnemyWaveSpawner").GetComponent<EnemyWaves>();
     }
