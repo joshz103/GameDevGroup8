@@ -9,6 +9,7 @@ public class ShopMenu : MonoBehaviour
     public GameObject shopMenu;
     public GameObject shopMenu2;
     public GameObject playerHUD;
+    public WaveCountdownText WaveCountdownText;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +34,7 @@ public class ShopMenu : MonoBehaviour
         shopMenu2.SetActive(false);
         playerHUD.SetActive(true);
         Time.timeScale = 1f;
+        WaveCountdownText.countdownDisrupted(); //Fixes the timer between waves getting stuck when pausing
     }
 
     public void Pause()

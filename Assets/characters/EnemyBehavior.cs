@@ -146,6 +146,9 @@ public class EnemyBehavior : MonoBehaviour
             }
 
             animator.SetBool("isDead", true);
+
+            gameObject.layer = 9; 
+
             dead = true;
             if (Random.Range(0, 100) < currencyDropChance && hasDroppedItem == false)
             {

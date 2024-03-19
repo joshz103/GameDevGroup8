@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyWaves : MonoBehaviour
@@ -13,31 +14,56 @@ public class EnemyWaves : MonoBehaviour
 
     public int waveNum = 0;
 
+    private int waveCooldown = 8;
+
+    //public GameObject waveCounter;
+    public WaveCounterHUD waveCounterHUDObj;
+    public WaveCountdownText waveCountdownText;
+
     /*//////////ENEMY IDS//////////
     0. Skeleton
     1. Volcano Walker
 
 
     */
+    public void Start()
+    {
+        //waveCounterHUDObj = GetComponent<WaveCounterHUD>();
+        checkEnemiesAlive();
+    }
+
+    public int getWaveCooldown()
+    {
+        return waveCooldown;
+    }
 
     public void checkEnemiesAlive()
     {
         if (enemiesAlive <= 0)
         {
             waveNum++;
+            waveCountdownText.resetSpawning();
+            waveCounterHUDObj.updateWaveCounter();
+            StartCoroutine(startWaveCooldown());
+        }
+    }
 
-            if (waveNum < 10)
-            {
-                spawnWaveRound1to9();
-            }
+    public void startWave()
+    {
+        if (waveNum < 10)
+        {
+            spawnWaveRound1to9();
+        }
 
-            if (waveNum == 10)
-            {
-
-            }
-
+        if (waveNum == 10)
+        {
 
         }
+    }
+
+    public string getWaveNumStr()
+    {
+        return waveNum.ToString();
     }
 
     public void removeEnemyCount()
@@ -46,11 +72,15 @@ public class EnemyWaves : MonoBehaviour
         checkEnemiesAlive();
     }
 
-
-    public void Start()
+    public IEnumerator startWaveCooldown()
     {
-        checkEnemiesAlive();
+        for (int i = waveCooldown; i > 0; i--)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        //startWave();
     }
+
 
     public void spawnWaveRound1to9()
     {
