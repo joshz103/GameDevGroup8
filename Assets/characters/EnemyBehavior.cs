@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,6 +16,14 @@ public class EnemyBehavior : MonoBehaviour
     public EnemyHP hp;
     public Animator animator;
     private bool dead = false;
+
+    private playerstats stats;
+
+    //memes
+    [SerializeField] private AudioSource audioSource1;
+    [SerializeField] AudioClip griddySound;
+    bool hasPlayedGriddy = false;
+    bool griddyEnabled = false;
 
     public EnemyAttackHitbox attackHitbox;
 
@@ -71,6 +80,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
         agent = GetComponent<NavMeshAgent>();
         waves = GameObject.FindGameObjectWithTag("EnemyWaveSpawner").GetComponent<EnemyWaves>();
     }
@@ -135,8 +145,28 @@ public class EnemyBehavior : MonoBehaviour
                 }
             }
         }
-    }
 
+        if (griddyEnabled)
+        {
+            if (stats.getCurrentHealth() <= 0)
+            {
+                animator.SetBool("isGriddy", true);
+
+                if (hasPlayedGriddy == false)
+                {
+                    hasPlayedGriddy = true;
+                    AudioClip clip = griddySound;
+                    audioSource1.Play();
+                }
+            }
+        
+
+
+            
+        }
+
+
+    }
 
     //AI Status
     public void checkIfDead()
@@ -166,8 +196,7 @@ public class EnemyBehavior : MonoBehaviour
     public bool isDead()
     {
         return dead;
-    }
-
+    } 
 
     //AI Behavior
 

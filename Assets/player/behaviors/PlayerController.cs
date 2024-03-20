@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
     //Spell objects
     public GameObject earthspell;
     private bool earthspellCooldown = false;
+    public GameObject firespell;
+    public GameObject fireballPlayerObj;
+    private bool firespellCooldown = false;
+    private Vector3 fireballOffset = new Vector3(0f, 1f, 0f);
 
     // Start is called before the first frame update. Gets the ControllerController component from whatever object has this script. We can then reference it in the code.
     void Start()
@@ -320,7 +324,7 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
     }
 
-
+    //EARTH
     public void castEarthStart(InputAction.CallbackContext context)
     {
         if (earthspellCooldown == false)
@@ -346,6 +350,45 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         earthspellCooldown = false;
+    }
+
+    //FIRE
+    public void castFireStart(InputAction.CallbackContext context)
+    {
+        if (firespellCooldown == false)
+        {
+            animator.SetBool("isCastingFire", true);
+            firespellCooldown = true;
+            StartCoroutine(castFireCooldown());
+        }
+    }
+
+    public void fireballHandVisualOff()
+    {
+        fireballPlayerObj.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    public void fireballHandVisualOn()
+    {
+        fireballPlayerObj.GetComponent<MeshRenderer>().enabled = true;
+        fireballPlayerObj.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void castFire()
+    {
+        Instantiate(firespell, gameObject.transform.position + (transform.forward) + fireballOffset, gameObject.transform.rotation);
+        Debug.Log("Fire");
+    }
+
+    public void castFireEnd()
+    {
+        animator.SetBool("isCastingFire", false);
+    }
+
+    IEnumerator castFireCooldown()
+    {
+        yield return new WaitForSeconds(5f);
+        firespellCooldown = false;
     }
 
 

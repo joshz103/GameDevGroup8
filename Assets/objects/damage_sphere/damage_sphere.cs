@@ -6,27 +6,29 @@ using UnityEngine;
 public class damage_sphere : MonoBehaviour
 {
     private playerstats stats;
+    public int damageAmt;
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject, 0.1f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+
+
+        if (other.gameObject.CompareTag("Enemy") && other.GetComponent<EnemyBehavior>().isDead() == false)
         {
-            Debug.Log("Player took damage!");
-            stats.damage(1f);
+            other.GetComponent<EnemyHP>().damage(damageAmt, false);
+            Debug.Log("Damaged a " + other);
+            //Instantiate(damagePopupPrefab);
+            //soundPlayer.playDamageSound();
+            //Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
         }
     }
+
 
 
 }
