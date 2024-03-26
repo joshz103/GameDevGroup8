@@ -52,25 +52,52 @@ public class PlayerAttackDamage : MonoBehaviour
         damageMult = playerDamage;
         float rng = UnityEngine.Random.Range(0f, 100f);
 
-        if (other.gameObject.CompareTag("Enemy") && other.GetComponent<EnemyBehavior>().isDead() == false)
+        if (other.GetComponent<EnemyBehavior>() != null)
         {
-            if (stats.getLuck() > rng)
+            if (other.gameObject.CompareTag("Enemy") && (other.GetComponent<EnemyBehavior>().isDead() == false))
             {
-                damageMult *= 2f;
-                other.GetComponent<EnemyHP>().damage(damageMult, true);
-                soundPlayer.playCritSound();
-                recentDMG = damageMult;
-                Debug.Log("Critical Hit!");
+                if (stats.getLuck() > rng)
+                {
+                    damageMult *= 2f;
+                    other.GetComponent<EnemyHP>().damage(damageMult, true);
+                    soundPlayer.playCritSound();
+                    recentDMG = damageMult;
+                    Debug.Log("Critical Hit!");
+                }
+                else
+                {
+                    recentDMG = damageMult;
+                    other.GetComponent<EnemyHP>().damage(damageMult, false);
+                }
+                Instantiate(damagePopupPrefab);
+                soundPlayer.playDamageSound();
+                Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
             }
-            else
-            {
-                recentDMG = damageMult;
-                other.GetComponent<EnemyHP>().damage(damageMult, false);
-            }
-            Instantiate(damagePopupPrefab);
-            soundPlayer.playDamageSound();
-            Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
         }
+
+        if (other.GetComponent<EnemyBehaviorBoss>() != null)
+        {
+            if (other.gameObject.CompareTag("Enemy") && (other.GetComponent<EnemyBehaviorBoss>().isDead() == false))
+            {
+                if (stats.getLuck() > rng)
+                {
+                    damageMult *= 2f;
+                    other.GetComponent<EnemyHP>().damage(damageMult, true);
+                    soundPlayer.playCritSound();
+                    recentDMG = damageMult;
+                    Debug.Log("Critical Hit!");
+                }
+                else
+                {
+                    recentDMG = damageMult;
+                    other.GetComponent<EnemyHP>().damage(damageMult, false);
+                }
+                Instantiate(damagePopupPrefab);
+                soundPlayer.playDamageSound();
+                Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
+            }
+        }
+
     }
 
     public string getRecentDamageStr()

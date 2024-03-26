@@ -703,9 +703,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   enemy: {fileID: 3087436138694387673}
+  playerAnimator: {fileID: 0}
   playerAttackHitbox: {fileID: 0}
   animator: {fileID: 0}
   soundPlayer: {fileID: 0}
+  stunChance: 75
+  stunTime: 0
 --- !u!114 &6939005885993803817
 MonoBehaviour:
   m_ObjectHideFlags: 0

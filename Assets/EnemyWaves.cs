@@ -21,9 +21,12 @@ public class EnemyWaves : MonoBehaviour
     public WaveCountdownText waveCountdownText;
 
     /*//////////ENEMY IDS//////////
+    Basic Enemies
     0. Skeleton
     1. Volcano Walker
 
+    Bosses
+    0. Skeleton King
 
     */
     public void Start()
@@ -57,7 +60,7 @@ public class EnemyWaves : MonoBehaviour
 
         if (waveNum == 10)
         {
-
+            spawnBossRound10();
         }
     }
 
@@ -69,6 +72,12 @@ public class EnemyWaves : MonoBehaviour
     public void removeEnemyCount()
     {
         enemiesAlive--;
+        checkEnemiesAlive();
+    }
+
+    public void addEnemyCount()
+    {
+        enemiesAlive++;
         checkEnemiesAlive();
     }
 
@@ -94,6 +103,11 @@ public class EnemyWaves : MonoBehaviour
                 Template2();
                 break;
         }
+    }
+
+    public void spawnBossRound10()
+    {
+        BossTemplate1();
     }
 
     public void spawnWaveRound10to19()
@@ -146,6 +160,20 @@ public class EnemyWaves : MonoBehaviour
         }
     }
 
-
+    private void BossTemplate1()
+    {
+        for (int i = 0; i < UnityEngine.Random.Range(3, 5); i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(bosses[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
 
 }

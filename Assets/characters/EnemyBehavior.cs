@@ -175,7 +175,10 @@ public class EnemyBehavior : MonoBehaviour
         {
             if(dead == false)
             {
-                waves.removeEnemyCount();
+                if (waves) //If we spawn an enemy for testing or something, it wont get stuck here and interrupt death animations and stuff
+                {
+                    waves.removeEnemyCount();
+                }
             }
 
             animator.SetBool("isDead", true);
