@@ -24,6 +24,9 @@ public class EnemyWaves : MonoBehaviour
     Basic Enemies
     0. Skeleton
     1. Volcano Walker
+    2. Slime
+    3. Reaper Ghost
+    4. Skeleton Wizard
 
     Bosses
     0. Skeleton King
@@ -62,6 +65,12 @@ public class EnemyWaves : MonoBehaviour
         {
             spawnBossRound10();
         }
+
+        if (waveNum > 10 && waveNum < 20)
+        {
+            spawnWaveRound10to19();
+        }
+
     }
 
     public string getWaveNumStr()
@@ -93,7 +102,7 @@ public class EnemyWaves : MonoBehaviour
 
     public void spawnWaveRound1to9()
     {
-        int randomNum = Random.Range(0, 2); //Should Equal the amount of wave templates!
+        int randomNum = Random.Range(0, 4); //Should Equal the amount of wave templates!
         switch (randomNum)
         {
             case 0: 
@@ -101,6 +110,12 @@ public class EnemyWaves : MonoBehaviour
                 break;
             case 1:
                 Template2();
+                break;
+            case 2:
+                Template3();
+                break;
+            case 3:
+                Template4();
                 break;
         }
     }
@@ -112,7 +127,33 @@ public class EnemyWaves : MonoBehaviour
 
     public void spawnWaveRound10to19()
     {
-
+        int randomNum = Random.Range(0, 6); //Should Equal the amount of wave templates!
+        switch (randomNum)
+        {
+            case 0:
+                Template1();
+                Template1();
+                break;
+            case 1:
+                Template2();
+                Template1();
+                break;
+            case 2:
+                Template3();
+                Template1();
+                break;
+            case 3:
+                Template4();
+                Template4();
+                Template4();
+                break;
+            case 4:
+                Template5();
+                break;
+            case 5:
+                Template6();
+                break;
+        }
     }
 
     public void spawnWaveRound20to29()
@@ -159,6 +200,76 @@ public class EnemyWaves : MonoBehaviour
             enemiesAlive++;
         }
     }
+
+    private void Template3()
+    {
+        for (int i = 0; i < UnityEngine.Random.Range(3, 5); i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[2], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
+
+    private void Template4()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[1], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[2], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
+
+    private void Template5()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[3], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
+
+    private void Template6()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+
+        for (int i = 0; i < UnityEngine.Random.Range(1, 3); i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(enemies[4], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
+
+
 
     private void BossTemplate1()
     {

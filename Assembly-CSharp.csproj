@@ -107,6 +107,7 @@
     <Compile Include="Assets\EnemyPushback.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\FPSCounter.cs" />
+    <Compile Include="Assets\objects\damage_sphere\damage_sphere_player.cs" />
     <Compile Include="Assets\player\behaviors\PlayerStats.cs" />
     <Compile Include="Assets\Despawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />

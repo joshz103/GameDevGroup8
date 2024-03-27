@@ -384,6 +384,7 @@
 "Assets/HUD/ShopMenu.cs"
 "Assets/HUD/TestSpawnText.cs"
 "Assets/objects/damage_sphere/damage_sphere.cs"
+"Assets/objects/damage_sphere/damage_sphere_player.cs"
 "Assets/player/behaviors/PlayerAttackDamage.cs"
 "Assets/player/behaviors/PlayerController.cs"
 "Assets/player/behaviors/PlayerSounds.cs"

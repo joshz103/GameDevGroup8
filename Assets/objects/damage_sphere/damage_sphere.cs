@@ -7,18 +7,21 @@ public class damage_sphere : MonoBehaviour
 {
     private playerstats stats;
     public int damageAmt;
+    public bool destroyAfterTime = true;
+    public float destroyTime = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
-        Destroy(gameObject, 0.1f);
+        if (destroyAfterTime )
+        {
+            Destroy(gameObject, destroyTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         if (other.gameObject.CompareTag("Enemy") && other.GetComponent<EnemyBehavior>().isDead() == false)
         {
             other.GetComponent<EnemyHP>().damage(damageAmt, false);

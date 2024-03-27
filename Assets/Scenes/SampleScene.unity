@@ -1830,6 +1830,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 3087436138694387673, guid: cfad9ca6f573fd14fb5e3e541c4fad8b, type: 3}
   - {fileID: 6570447689177925164, guid: 571b1e1c4e592764e8ebe89e362c5e63, type: 3}
+  - {fileID: 5318574228196115290, guid: 0b1b670a73373c74597d7b2aebd0865e, type: 3}
+  - {fileID: 1690787722981372640, guid: 39b23e245604614419183c18ebac65e4, type: 3}
+  - {fileID: 7291337508357585323, guid: 0cdcc3d6e36389248b81683d3defaba9, type: 3}
   bosses:
   - {fileID: 6991963137615852389, guid: 619eade774fb9cf4889e5b0f0e62c580, type: 3}
   enemySpawnpoint:
