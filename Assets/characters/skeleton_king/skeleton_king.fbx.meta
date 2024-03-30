@@ -7,11 +7,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 9012ac63cf711324c836f30789b81a88, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Bone
     second: {fileID: 2100000, guid: c6141f20b9493b646a21671d34582fdc, type: 2}
   - first:
@@ -19,6 +14,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: bluish_metal
     second: {fileID: 2100000, guid: 8114a11a4465cfe41b6a297565bd4c16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crown
+    second: {fileID: 2100000, guid: 334f2b90fae00a54792ee5e3abd1bff8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grey
+    second: {fileID: 2100000, guid: 8d351e92b24fe2240b3a39755989e5a7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

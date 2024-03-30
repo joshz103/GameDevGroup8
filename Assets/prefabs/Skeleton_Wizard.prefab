@@ -447,7 +447,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
---- !u!4 &3913310978188597778 stripped
+--- !u!4 &788206412677687106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
   m_PrefabInstance: {fileID: 3913310978188597777}
@@ -627,7 +627,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
---- !u!4 &5917053368736872755 stripped
+--- !u!4 &7972218685338223713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
   m_PrefabInstance: {fileID: 5917053368736872754}
@@ -650,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04c582829a222284284728291052a221, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04c582829a222284284728291052a221, type: 3}
       propertyPath: m_LocalScale.x
@@ -876,13 +876,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 858577537816276497, guid: 04c582829a222284284728291052a221, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84f305abc4d7a8445bbcf18f38c1bd3b, type: 2}
     - target: {fileID: 899701573690474024, guid: 04c582829a222284284728291052a221, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 04c582829a222284284728291052a221, type: 3}
       propertyPath: m_Name
-      value: Skeleton_Wizard Variant
+      value: Skeleton_Wizard
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 04c582829a222284284728291052a221, type: 3}
       propertyPath: m_Layer
@@ -1085,13 +1089,13 @@ PrefabInstance:
       addedObject: {fileID: 6257487633379927435}
     - targetCorrespondingSourceObject: {fileID: 5535442923691067082, guid: 04c582829a222284284728291052a221, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3913310978188597778}
+      addedObject: {fileID: 788206412677687106}
     - targetCorrespondingSourceObject: {fileID: -8990186157473750826, guid: 04c582829a222284284728291052a221, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5793053699126435579}
     - targetCorrespondingSourceObject: {fileID: -2570074002980835975, guid: 04c582829a222284284728291052a221, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5917053368736872755}
+      addedObject: {fileID: 7972218685338223713}
     - targetCorrespondingSourceObject: {fileID: -6342839645569541319, guid: 04c582829a222284284728291052a221, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8935136637878895408}
