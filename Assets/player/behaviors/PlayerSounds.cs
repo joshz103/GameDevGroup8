@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerSounds : MonoBehaviour
 {
     [SerializeField] AudioClip[] damageSounds;
-    [SerializeField] AudioClip critSound;
+    [SerializeField] AudioClip[] swingSounds;
+    [SerializeField] AudioClip[] stepSounds;
+    [SerializeField] AudioClip[] landSounds;
+    [SerializeField] AudioClip soundClip;
 
     [SerializeField] private AudioSource audioSource1;
     [SerializeField] private AudioSource audioSource2;
@@ -26,7 +29,26 @@ public class PlayerSounds : MonoBehaviour
 
     public void playCritSound()
     {
-        AudioClip clip = critSound;
+        AudioClip clip = soundClip;
+        audioSource2.volume = 1f;
+        audioSource2.PlayOneShot(clip);
+    }
+
+    public void playSwingSound()
+    {
+        AudioClip clip = swingSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
+        audioSource2.PlayOneShot(clip);
+    }
+
+    public void playPlayerFootstepSound()
+    {
+        AudioClip clip = stepSounds[UnityEngine.Random.Range(0, stepSounds.Length)];
+        audioSource2.PlayOneShot(clip);
+    }
+
+    public void playLandingSound()
+    {
+        AudioClip clip = stepSounds[UnityEngine.Random.Range(0, landSounds.Length)];
         audioSource2.PlayOneShot(clip);
     }
 

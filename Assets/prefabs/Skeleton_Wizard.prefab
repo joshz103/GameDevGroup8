@@ -392,11 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.009600006
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.006316569
+      value: -0.0063165617
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -427,12 +427,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7291337508357585323}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: damageAmt
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: destroyTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: causesKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackHeight
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: useEnemyPositionInstead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276815224028940009, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_Name
@@ -482,11 +502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.009600006
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.006316569
+      value: -0.0063165617
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -517,12 +537,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7291337508357585323}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: damageAmt
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: destroyTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: causesKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackHeight
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: useEnemyPositionInstead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276815224028940009, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_Name
@@ -572,11 +612,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.009600006
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.006316569
+      value: -0.0063165617
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -607,12 +647,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7291337508357585323}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: damageAmt
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: destroyTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: causesKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackHeight
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: useEnemyPositionInstead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276815224028940009, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_Name
@@ -1256,9 +1316,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPointRange: 0
-  timeBetweenAttacks: 3
+  timeBetweenAttacks: 3.2
   sightRange: 100
-  attackRange: 5
+  attackRange: 4.5
   turnSpeed: 15
   aimTime: 0.3
   attackDamage: 1
@@ -1336,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0096
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1371,12 +1431,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7291337508357585323}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: damageAmt
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: destroyTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: causesKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackHeight
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: useEnemyPositionInstead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276815224028940009, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_Name
@@ -1426,11 +1506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.009600006
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.006316569
+      value: -0.0063165617
       objectReference: {fileID: 0}
     - target: {fileID: 4377105314576072019, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1461,12 +1541,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7291337508357585323}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: damageAmt
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: destroyTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: causesKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackHeight
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279636038746541787, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
+      propertyPath: useEnemyPositionInstead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276815224028940009, guid: 9dfcffea69c617949bd9ac0cd645ab86, type: 3}
       propertyPath: m_Name

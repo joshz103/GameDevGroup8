@@ -468,7 +468,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7240010146970145770}
+  boss: {fileID: 6991963137615852389}
   hitbox: {fileID: 6486384231460681173}
+  causesKnockback: 1
+  knockbackHeight: 5
+  knockbackDistance: -15
 --- !u!1001 &7910881417666154036
 PrefabInstance:
   m_ObjectHideFlags: 0

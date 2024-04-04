@@ -10,6 +10,13 @@ public class damage_sphere_player : MonoBehaviour
     public bool destroyAfterTime = true;
     public float destroyTime = 0.1f;
 
+    public bool useEnemyPositionInstead;
+    public GameObject enemy;
+
+    public bool causesKnockback;
+    public float knockbackHeight;
+    public float knockbackDistance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +36,21 @@ public class damage_sphere_player : MonoBehaviour
             //Instantiate(damagePopupPrefab);
             //soundPlayer.playDamageSound();
             //Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
+
+            if (causesKnockback)
+            {
+                if (!useEnemyPositionInstead)
+                {
+                    other.GetComponent<PlayerController>().playerKnockback(knockbackHeight, knockbackDistance, enemy);
+                }
+                else
+                {
+                    other.GetComponent<PlayerController>().playerKnockback(knockbackHeight, knockbackDistance, gameObject);
+                }
+                
+                
+            }
+
         }
     }
 

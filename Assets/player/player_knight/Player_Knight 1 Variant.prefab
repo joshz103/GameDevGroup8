@@ -1505,7 +1505,7 @@ PrefabInstance:
       addedObject: {fileID: 470583431625270148}
     - targetCorrespondingSourceObject: {fileID: -2775295801365405010, guid: a837bd65c84d9eb43856b2a44569c019, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4833596475053202537}
+      addedObject: {fileID: 668557405800883835}
     - targetCorrespondingSourceObject: {fileID: -7181927617673132047, guid: a837bd65c84d9eb43856b2a44569c019, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4364760807645076242}
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   moveZAccel: 0
   earthspell: {fileID: 336529970198175213, guid: 858b173ee157fc0498f3067d712fcd30, type: 3}
   firespell: {fileID: 4768939255057341717, guid: 7412d69c61e8e6441848c6b4eab32bbd, type: 3}
-  fireballPlayerObj: {fileID: 2501414414570219705}
+  fireballPlayerObj: {fileID: 7558619216768160427}
 --- !u!114 &3293346696738544108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5baf0f9e370007348b7a4fcbc1827a91, type: 3}
   - {fileID: 8300000, guid: 9fa9f4b69e81b2948bed430a900bbb14, type: 3}
   - {fileID: 8300000, guid: 2cea709fd6a09054c9b104e7f2c36a72, type: 3}
-  critSound: {fileID: 8300000, guid: 4d633606686b7fe499280a9dae52503a, type: 3}
+  swingSounds:
+  - {fileID: 8300000, guid: 267baaaa10d22c949a290de1aa236e87, type: 3}
+  - {fileID: 8300000, guid: f1bff2eceff27f845b561cd02f518de3, type: 3}
+  - {fileID: 8300000, guid: 1187a89239489ee40b4721abb87165d0, type: 3}
+  stepSounds:
+  - {fileID: 8300000, guid: 5874c49880ef12247956a6d65c53be57, type: 3}
+  - {fileID: 8300000, guid: bba2815538a406b40bb1f758dcc2dbea, type: 3}
+  - {fileID: 8300000, guid: 11f3a4f67db82a84f96988515758ec65, type: 3}
+  - {fileID: 8300000, guid: a8a33f079adb75c4db937bfc9372304c, type: 3}
+  landSounds:
+  - {fileID: 8300000, guid: 8af34dcef9dc8234aaeece5d3d45faa9, type: 3}
+  soundClip: {fileID: 0}
   audioSource1: {fileID: 1154307588665149093}
   audioSource2: {fileID: 8447389315620350663}
 --- !u!4 &1739781627249984898 stripped
@@ -1983,13 +1994,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16ee0d1d06a5b42448d36b941f81f161, type: 3}
---- !u!1 &2501414414570219705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4402414292461030096, guid: 16ee0d1d06a5b42448d36b941f81f161, type: 3}
-  m_PrefabInstance: {fileID: 6196135428699347067}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4833596475053202537 stripped
+--- !u!4 &668557405800883835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6681698296637013504, guid: 16ee0d1d06a5b42448d36b941f81f161, type: 3}
+  m_PrefabInstance: {fileID: 6196135428699347067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7558619216768160427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4402414292461030096, guid: 16ee0d1d06a5b42448d36b941f81f161, type: 3}
   m_PrefabInstance: {fileID: 6196135428699347067}
   m_PrefabAsset: {fileID: 0}

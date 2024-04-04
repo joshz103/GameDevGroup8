@@ -112,6 +112,7 @@
 -define:CINEMACHINE_PHYSICS_2D
 -define:CINEMACHINE_PHYSICS
 -define:CINEMACHINE_UGUI
+-define:CINEMACHINE_URP
 -define:CINEMACHINE_UNITY_INPUTSYSTEM
 -define:CINEMACHINE_UNITY_ANIMATION
 -define:CINEMACHINE_UNITY_IMGUI
@@ -308,6 +309,8 @@
 -r:"E:/Unity/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
 -r:"Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.InputSystem.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.RenderPipelines.Universal.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Timeline.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
 -analyzer:"E:/Unity/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"

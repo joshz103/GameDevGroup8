@@ -6,7 +6,12 @@ public class EnemyAttackHitboxBoss : MonoBehaviour
 {
     playerstats stats;
     public EnemyBehaviorBoss enemy;
+    public GameObject boss;
     public GameObject hitbox;
+
+    public bool causesKnockback;
+    public float knockbackHeight;
+    public float knockbackDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +24,10 @@ public class EnemyAttackHitboxBoss : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             stats.damage(enemy.getAttackDamage());
+            if (causesKnockback)
+            {
+                other.GetComponent<PlayerController>().playerKnockback(knockbackHeight, knockbackDistance, boss);
+            }
         }
     }
 

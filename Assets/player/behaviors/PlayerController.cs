@@ -28,19 +28,23 @@ public class PlayerController : MonoBehaviour
 
     private float speed;
     private float movementMultiplier;
+    //private float constMovementMultiplier = 1f;
     public float currentSpeed;
     private float speedOffset = -0f;
     private float acceleration;
-    private float accelerationVal = 12.5f;
+    //private float accelerationVal = 5f;
     private bool isMoving;
     private bool isSprinting;
     //private bool isAttack1;
     public float targetSpeed;
     private bool canMove = true;
+    private bool canInputMove = true;
     private bool canAttack = true;
     private bool isDead = false;
     private bool isAttacking = false;
     public PlayerAttackDamage playerAttackDamage;
+
+    private Vector3 knockbackDir;
 
     //[SerializeField] private Movement movement; --changed this, unused now. Didn't play well with stats
 
@@ -71,7 +75,6 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerStat = GetComponent<playerstats>();
         movementMultiplier = 3f;
-        acceleration = accelerationVal;
         animator = GetComponent<Animator>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
     }
@@ -95,6 +98,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ApplyRevive());
         }
 
+        if (!characterController.isGrounded && animator.GetBool("isKnockback") == false)
+        {
+            acceleration = 1f; //Acceleration when airborne
+        }
+        else if (!characterController.isGrounded && animator.GetBool("isKnockback") == true)
+        {
+            acceleration = 99999f; //Knockback acceleration should be instant
+        }
+        else
+        {
+            acceleration = 120.5f; //Acceleration when on the ground
+        }
 
     }
 
@@ -113,23 +128,32 @@ public class PlayerController : MonoBehaviour
     //Called every frame to apply movement to the player. Base speed is set in the speed variable while sprint is handled by the Movement struct.
     private void ApplyMovement()
     {
-        if (isMoving && !isSprinting && canMove)
+        if (isMoving && !isSprinting && canMove && canInputMove)
         {
             animator.SetBool("isSprinting", false);
             animator.SetBool("isWalking", true);
-            targetSpeed = speed + speedOffset;
+            if (animator.GetBool("isKnockback") == false)
+            {
+                targetSpeed = speed + speedOffset;
+            }
         }
-        else if (isMoving && isSprinting && canMove)
+        else if (isMoving && isSprinting && canMove && canInputMove)
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isSprinting", true);
-            targetSpeed = (speed + speedOffset) * movementMultiplier;
+            if (animator.GetBool("isKnockback") == false)
+            {
+                targetSpeed = (speed + speedOffset) * movementMultiplier;
+            }
         }
         else
         {
             animator.SetBool("isSprinting", false);
             animator.SetBool("isWalking", false);
-            targetSpeed = 0;
+            if (animator.GetBool("isKnockback") == false)
+            {
+                targetSpeed = 0;
+            }
         }
 
         //var targetSpeed = isSprinting ? speed * movementMultiplier : speed; //If isSprinting then targetSpeed = movement.speed * movement.multiplier else targetSpeed = movement.speed
@@ -139,12 +163,28 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementXZ = new Vector3(direction.x, 0f, direction.z);
 
-        if (canMove && !isDead)
+        if (canMove)
         {
-            characterController.Move(movementXZ * currentSpeed * Time.deltaTime);
+            if (movementXZ == Vector3.zero && animator.GetBool("isAirborne") == true && animator.GetBool("isKnockback") == true)
+            {
+                Debug.Log(knockbackDir);
+                characterController.Move(knockbackDir * currentSpeed * Time.deltaTime);
+            }
+            if (movementXZ == Vector3.zero && animator.GetBool("isAirborne") == true && animator.GetBool("isKnockback") == false)
+            {
+                characterController.Move((movementXZ * 0.5f) + gameObject.transform.forward * currentSpeed * Time.deltaTime);
+            }
+            else
+            {
+                if (animator.GetBool("isKnockback") == false)
+                {
+                    characterController.Move(movementXZ * currentSpeed * Time.deltaTime);
+                }
+            }
         }
 
         characterController.Move(movementGravity * Time.deltaTime);
+
 
         if (!characterController.isGrounded)
         {
@@ -155,6 +195,13 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isAirborne", false);
         }
 
+        if (animator.GetBool("isKnockback") == true)
+        {
+            if (gameObject.GetComponent<CharacterController>().isGrounded)
+            {
+                playerKnockbackReset();
+            }
+        }
     }
 
     public void setCurrentSpeed(float n) //Used for enemy pushback
@@ -197,9 +244,16 @@ public class PlayerController : MonoBehaviour
     //******************************
     public void Move(InputAction.CallbackContext context)
     {
-        isMoving = context.started || context.performed;
-        input = context.ReadValue<Vector2>();
-        direction = new Vector3(input.x, 0f, input.y);
+        if (canInputMove)
+        {
+            isMoving = context.started || context.performed;
+            input = context.ReadValue<Vector2>();
+            direction = new Vector3(input.x, 0f, input.y);
+        }
+        else
+        {
+            input = Vector2.zero;
+        }
     }
 
     //******************************
@@ -241,6 +295,34 @@ public class PlayerController : MonoBehaviour
     {
         isSprinting = context.started || context.performed;
     }
+
+
+    //******************************
+    //KNOCKBACK/STUN
+    //******************************
+    
+    public void playerKnockback(float knockbackHeight, float knockbackDistance, GameObject obj)
+    {
+        y_velocity = knockbackHeight;
+        knockbackDir = (gameObject.transform.position - obj.transform.position).normalized;
+        knockbackDir.y = 0f;
+        animator.SetBool("isKnockback", true);
+        targetSpeed = -knockbackDistance;
+
+        canInputMove = false;
+        isMoving = false;
+        input = Vector2.zero;
+        canAttack = false;
+    }
+
+    public void playerKnockbackReset()
+    {
+        canInputMove = true;
+        canAttack = true;
+        animator.SetBool("isKnockback", false);
+        targetSpeed = 0f;
+    }
+
 
     //******************************
     //ATTACK
@@ -297,6 +379,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyDeath()
     {
+        canInputMove = false;
         isDead = true;
         animator.SetBool("isDead", true);
     }
@@ -305,6 +388,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isDead", false);
         animator.SetBool("isReviving", true);
         yield return new WaitForSeconds(0.1f);
+        canInputMove = true;
         isDead = false;
         animator.SetBool("isReviving", false);
     }
