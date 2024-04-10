@@ -126,6 +126,7 @@
     <Compile Include="Assets\collectables\currency1\Currency_Pickup.cs" />
     <Compile Include="Assets\HUD\BuyMaxMana.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\collectables\healing\HealingItem.cs" />
     <Compile Include="Assets\HUD\TestSpawnText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>

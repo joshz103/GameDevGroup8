@@ -1328,6 +1328,7 @@ MonoBehaviour:
   firingPoint: {fileID: 0}
   projectileSpeed: 0
   currency1: {fileID: 7502873755426991808, guid: ab2ee387e2f821443936b9ea3ce63426, type: 3}
+  heart: {fileID: 2248440442567637413, guid: 71315bf4294a73d41b5febf80c5b537b, type: 3}
   currencyDropChance: 100
 --- !u!195 &5270787447094533721
 NavMeshAgent:

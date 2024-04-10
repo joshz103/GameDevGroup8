@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 2, y: 0.9375, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4793113925033728480}
+  m_Father: {fileID: 8765970063678716958}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8551962807747104515
@@ -153,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2, z: 1.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4793113925033728480}
+  m_Father: {fileID: 8765970063678716958}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6458564676553803930
@@ -273,7 +273,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4793113925033728480}
+  m_Father: {fileID: 8765970063678716958}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8824058702504974957
@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
       propertyPath: m_Name
-      value: Slime 1
+      value: Slime
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
       propertyPath: m_Layer
@@ -634,12 +634,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4506943299125190874}
   m_SourcePrefab: {fileID: 100100000, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
---- !u!4 &4793113925033728480 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
-  m_PrefabInstance: {fileID: 9091714493024197621}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5318574228196115290 stripped
+--- !u!1 &8281323637042538148 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
   m_PrefabInstance: {fileID: 9091714493024197621}
@@ -651,7 +646,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 31332723293185f4fbe039f8af33af00, type: 2}
@@ -671,7 +666,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -694,7 +689,7 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   serializedVersion: 4
   m_Mass: 15
   m_Drag: 5
@@ -721,14 +716,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1b97e01c1b0ab4484e4ff6cbcdbc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  enemy: {fileID: 5318574228196115290}
+  enemy: {fileID: 8281323637042538148}
   playerAnimator: {fileID: 0}
   playerAttackHitbox: {fileID: 0}
   animator: {fileID: 0}
@@ -741,7 +736,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 809ea3a288ad33c469139edc5be8866a, type: 3}
@@ -773,6 +768,7 @@ MonoBehaviour:
   firingPoint: {fileID: 0}
   projectileSpeed: 0
   currency1: {fileID: 7502873755426991808, guid: ab2ee387e2f821443936b9ea3ce63426, type: 3}
+  heart: {fileID: 2248440442567637413, guid: 71315bf4294a73d41b5febf80c5b537b, type: 3}
   currencyDropChance: 100
 --- !u!195 &4506943299125190874
 NavMeshAgent:
@@ -780,7 +776,7 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318574228196115290}
+  m_GameObject: {fileID: 8281323637042538148}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
@@ -796,3 +792,8 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!4 &8765970063678716958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90e7033d785dd6548a669e182582cb12, type: 3}
+  m_PrefabInstance: {fileID: 9091714493024197621}
+  m_PrefabAsset: {fileID: 0}

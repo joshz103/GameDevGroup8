@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353.8, y: -174.29993}
+  m_AnchoredPosition: {x: -353.8, y: -172.78}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141589661
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b45254bb73d3e2541b35f04a3ee13fad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c63443c7c5737e47bc39fb1e777e304, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1515,7 +1515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &376567720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1531,7 +1531,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 3087436138694387673, guid: cfad9ca6f573fd14fb5e3e541c4fad8b, type: 3}
   - {fileID: 6570447689177925164, guid: 571b1e1c4e592764e8ebe89e362c5e63, type: 3}
-  - {fileID: 5318574228196115290, guid: 0b1b670a73373c74597d7b2aebd0865e, type: 3}
+  - {fileID: 8281323637042538148, guid: 0b1b670a73373c74597d7b2aebd0865e, type: 3}
   - {fileID: 1690787722981372640, guid: 39b23e245604614419183c18ebac65e4, type: 3}
   - {fileID: 7291337508357585323, guid: 0cdcc3d6e36389248b81683d3defaba9, type: 3}
   bosses:
@@ -5448,7 +5448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1405105130
 Transform:
   m_ObjectHideFlags: 0

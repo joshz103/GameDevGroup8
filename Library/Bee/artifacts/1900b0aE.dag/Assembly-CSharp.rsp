@@ -384,6 +384,7 @@
 "Assets/characters/Projectile.cs"
 "Assets/characters/skeleton/skeleton_idle.cs"
 "Assets/collectables/currency1/Currency_Pickup.cs"
+"Assets/collectables/healing/HealingItem.cs"
 "Assets/collectables/offense_up/offense_up_collectable.cs"
 "Assets/Despawner.cs"
 "Assets/EnemyPushback.cs"

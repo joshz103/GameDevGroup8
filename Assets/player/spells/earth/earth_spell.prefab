@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}
       propertyPath: m_Name
-      value: earth_spell 1 1
+      value: earth_spell
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}
       propertyPath: m_Layer
@@ -95,6 +95,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4698956615570400708}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1459315701226172020}
     - targetCorrespondingSourceObject: {fileID: -4007543208646099642, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7187248014177584163}
@@ -128,6 +131,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1459315701226172020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336529970198175213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d1ae98b7fb31944b786eda215293a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 10
 --- !u!1 &4614123941579775482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4007543208646099642, guid: 3bd31ec8d141da24fa4b3236d6fb0d2f, type: 3}

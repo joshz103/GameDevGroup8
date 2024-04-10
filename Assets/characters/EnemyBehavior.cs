@@ -70,7 +70,9 @@ public class EnemyBehavior : MonoBehaviour
     private Vector3 playerOffset = new Vector3(0, 0.5f, 0);
 
     public GameObject currency1;
+    public GameObject heart;
     public int currencyDropChance;
+    private int heartDropChance = 5;
     private bool hasDroppedItem = false;
 
     private EnemyWaves waves;
@@ -186,12 +188,20 @@ public class EnemyBehavior : MonoBehaviour
             gameObject.layer = 9; 
 
             dead = true;
+
+            if (Random.Range(0, 100) < heartDropChance && hasDroppedItem == false)
+            {
+                hasDroppedItem = true;
+                Debug.Log("Dropped item");
+                Instantiate(heart, transform.position, transform.rotation);
+            }
+
             if (Random.Range(0, 100) < currencyDropChance && hasDroppedItem == false)
             {
+                hasDroppedItem = true;
                 Debug.Log("Dropped item");
                 Instantiate(currency1, transform.position, transform.rotation);
             }
-            hasDroppedItem = true;
             Destroy(gameObject, 2f);
         }
     }
