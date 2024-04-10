@@ -17,6 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     public Animator animator;
     private bool dead = false;
 
+    private bool enemyAddedToCount = false;
+
     private playerstats stats;
 
     //memes
@@ -190,6 +192,8 @@ public class EnemyBehavior : MonoBehaviour
             gameObject.layer = 9; 
 
             dead = true;
+
+            addKilledEnemy();
             
 
             if (Random.Range(0, 100) < heartDropChance && hasDroppedItem == false)
@@ -214,6 +218,15 @@ public class EnemyBehavior : MonoBehaviour
     public bool isDead()
     {
         return dead;
+
+    }
+
+    public void addKilledEnemy()
+    {
+        if (!enemyAddedToCount){
+            stats.addEnemyKilled();
+            enemyAddedToCount = true;
+        }
 
     } 
 

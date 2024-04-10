@@ -17,6 +17,8 @@ public class EnemyBehaviorBoss : MonoBehaviour
     public Animator animator;
     private bool dead = false;
 
+    private bool enemyAddedToCount = false;
+
     private playerstats stats;
 
     public EnemyAttackHitboxBoss attackHitbox;
@@ -144,6 +146,9 @@ public class EnemyBehaviorBoss : MonoBehaviour
             gameObject.layer = 9;
 
             dead = true;
+
+            addKilledEnemy();
+            
             if (Random.Range(0, 100) < currencyDropChance && hasDroppedItem == false)
             {
                 Debug.Log("Dropped item");
@@ -158,6 +163,15 @@ public class EnemyBehaviorBoss : MonoBehaviour
     {
         return dead;
     }
+
+    public void addKilledEnemy()
+    {
+        if (!enemyAddedToCount){
+            stats.addEnemyKilled();
+            enemyAddedToCount = true;
+        }
+
+    } 
 
     //AI Behavior
 
