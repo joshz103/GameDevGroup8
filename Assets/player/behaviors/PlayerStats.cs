@@ -22,6 +22,8 @@ public class playerstats : MonoBehaviour
 
     [SerializeField] private int money;
 
+    [SerializeField] private int enemiesKilled;
+
     private float baseOffense = 1f;
     private float baseDefense = 1f;
     private float baseSpeed = 1f;
@@ -73,6 +75,7 @@ public class playerstats : MonoBehaviour
         money = 0;
         maxMana = 100;
         mana = 50;
+        enemiesKilled=0;
     }
 
     //Mana
@@ -204,6 +207,15 @@ public class playerstats : MonoBehaviour
     public void subtractMoney(int value)
     {
         money -= value;
+    }
+
+    public float getEnemiesKilled()
+    {
+        return enemiesKilled;
+    }
+    public void addEnemyKilled()
+    {
+        enemiesKilled++;
     }
 
     public void damage(float value)

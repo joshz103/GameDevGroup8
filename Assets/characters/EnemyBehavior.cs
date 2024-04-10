@@ -173,6 +173,7 @@ public class EnemyBehavior : MonoBehaviour
     //AI Status
     public void checkIfDead()
     {
+        
         if (hp.getHP() <= 0)
         {
             if(dead == false)
@@ -182,12 +183,14 @@ public class EnemyBehavior : MonoBehaviour
                     waves.removeEnemyCount();
                 }
             }
+            
 
             animator.SetBool("isDead", true);
 
             gameObject.layer = 9; 
 
             dead = true;
+            
 
             if (Random.Range(0, 100) < heartDropChance && hasDroppedItem == false)
             {
@@ -202,13 +205,16 @@ public class EnemyBehavior : MonoBehaviour
                 Debug.Log("Dropped item");
                 Instantiate(currency1, transform.position, transform.rotation);
             }
+            
             Destroy(gameObject, 2f);
+            
         }
     }
 
     public bool isDead()
     {
         return dead;
+
     } 
 
     //AI Behavior
