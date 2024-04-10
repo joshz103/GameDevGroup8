@@ -22,6 +22,11 @@ public class PlayerSounds : MonoBehaviour
 
     public void playDamageSound()
     {
+        if (audioSource1.isPlaying) //Prevents sounds from stacking and becoming loud when attacking multiple enemies at once.
+        {
+            audioSource1.Stop();
+        }
+
         AudioClip clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
         audioSource1.pitch = (Random.Range(0.8f,1.2f));
         audioSource1.PlayOneShot(clip);
