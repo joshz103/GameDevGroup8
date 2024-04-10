@@ -411,12 +411,17 @@ public class PlayerController : MonoBehaviour
     //EARTH
     public void castEarthStart(InputAction.CallbackContext context)
     {
-        if (earthspellCooldown == false)
+        if (stats.getMana() >= 50)
         {
-            animator.SetBool("isCastingEarth", true);
-            earthspellCooldown = true;
-            StartCoroutine(castEarthCooldown());
+            if (earthspellCooldown == false)
+            {
+                stats.addMana(-50);
+                animator.SetBool("isCastingEarth", true);
+                earthspellCooldown = true;
+                StartCoroutine(castEarthCooldown());
+            }
         }
+        
     }
 
     public void castEarth()
@@ -439,12 +444,17 @@ public class PlayerController : MonoBehaviour
     //FIRE
     public void castFireStart(InputAction.CallbackContext context)
     {
-        if (firespellCooldown == false)
+        if (stats.getMana() >= 25)
         {
-            animator.SetBool("isCastingFire", true);
-            firespellCooldown = true;
-            StartCoroutine(castFireCooldown());
+            if (firespellCooldown == false)
+            {
+                stats.addMana(-25f);
+                animator.SetBool("isCastingFire", true);
+                firespellCooldown = true;
+                StartCoroutine(castFireCooldown());
+            }
         }
+        
     }
 
     public void fireballHandVisualOff()

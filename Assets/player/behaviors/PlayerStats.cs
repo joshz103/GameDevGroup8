@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerstats : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class playerstats : MonoBehaviour
     private PlayerSounds playerSounds;
 
     [SerializeField] private float offense;
-    [SerializeField] private float defense;
+    [SerializeField] private float defense; //unused
     [SerializeField] private float speed;
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
     [SerializeField] private float luck;
     [SerializeField] private float jumpHeight; //This stat will likely be hidden from the player and never change
+
+    [SerializeField] private float mana;
+    [SerializeField] private float maxMana;
 
     [SerializeField] private int money;
 
@@ -45,6 +49,16 @@ public class playerstats : MonoBehaviour
             currentHealth = 0;
         }
 
+        if (mana < maxMana)
+        {
+            manaRegen();
+        }
+
+        if (mana > maxMana)
+        {
+            mana = maxMana;
+        }
+
     }
 
     private void applyBaseStats() //Run on start to apply base character stats. Having 0 speed is no fun
@@ -57,7 +71,19 @@ public class playerstats : MonoBehaviour
         luck += baseLuck;
         jumpHeight += baseJumpHeight;
         money = 0;
+        maxMana = 100;
+        mana = 50;
     }
+
+    //Mana
+    public void manaRegen()
+    {
+        mana += 2 * Time.deltaTime;
+    }
+
+
+
+    //Stats
 
 
     public float getOffense()
@@ -190,6 +216,36 @@ public class playerstats : MonoBehaviour
     public string getCurrentHealthStr()
     {
         return string.Format("{0:N0}", currentHealth);
+    }
+
+    public float getMana()
+    {
+        return mana;
+    }
+
+    public string getManaStr()
+    {
+        return string.Format("{0:N2}", mana);
+    }
+
+    public void addMana(float value)
+    {
+        mana += value;
+    }
+
+    public float getMaxMana()
+    {
+        return maxMana;
+    }
+
+    public string getMaxManaStr()
+    {
+        return string.Format("{0:N2}", mana);
+    }
+
+    public void addMaxMana(float value)
+    {
+        maxMana += value;
     }
 
 }

@@ -79,6 +79,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\characters\Projectile.cs" />
     <Compile Include="Assets\HUD\DamageVisual.cs" />
+    <Compile Include="Assets\HUD\ManaBar.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\player\behaviors\PlayerSounds.cs" />
     <Compile Include="Assets\HUD\ShopMenu.cs" />
     <Compile Include="Assets\collectables\currency1\Currency_Pickup.cs" />
+    <Compile Include="Assets\HUD\BuyMaxMana.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\HUD\TestSpawnText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
