@@ -9,12 +9,13 @@ public class Projectile : MonoBehaviour
     public Transform firingPoint;
     public float damage;
     public playerstats stats;
+    public GameObject destructionEffect;
     // Start is called before the first frame update
 
     void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
 
     public void OnCollisionStay(Collision collision)
@@ -24,8 +25,19 @@ public class Projectile : MonoBehaviour
             stats.damage(damage);
         }
 
-        Destroy(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
+        Destroy(gameObject, 1f);
+
+        if(destructionEffect != null)
+        {
+            Instantiate(destructionEffect, transform.position, transform.rotation);
+        }
+
+
     }
+
+
 
 
 

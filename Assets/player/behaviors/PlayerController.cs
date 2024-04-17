@@ -77,6 +77,10 @@ public class PlayerController : MonoBehaviour
         movementMultiplier = 3f;
         animator = GetComponent<Animator>();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerstats>();
+
+        //Hide the cursor and center it on game start
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame. Calls all these methods every frame to update movement, rotation, and gravity. Any method with time.Deltatime will make adjustments independant of framerate.

@@ -98,6 +98,29 @@ public class PlayerAttackDamage : MonoBehaviour
             }
         }
 
+        if (other.GetComponent<EnemyBehavior_DarkKnight>() != null)
+        {
+            if (other.gameObject.CompareTag("Enemy") && (other.GetComponent<EnemyBehavior_DarkKnight>().isDead() == false))
+            {
+                if (stats.getLuck() > rng)
+                {
+                    damageMult *= 2f;
+                    other.GetComponent<EnemyHP>().damage(damageMult, true);
+                    soundPlayer.playCritSound();
+                    recentDMG = damageMult;
+                    Debug.Log("Critical Hit!");
+                }
+                else
+                {
+                    recentDMG = damageMult;
+                    other.GetComponent<EnemyHP>().damage(damageMult, false);
+                }
+                Instantiate(damagePopupPrefab);
+                soundPlayer.playDamageSound();
+                Debug.Log("Player dealt " + damageMult + " damage! | RNG Roll was " + rng);
+            }
+        }
+
     }
 
     public string getRecentDamageStr()

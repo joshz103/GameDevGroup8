@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ public class playerstats : MonoBehaviour
     [SerializeField] private int money;
 
     [SerializeField] private int enemiesKilled;
+
+    public bool godMode = false;
 
     private float baseOffense = 1f;
     private float baseDefense = 1f;
@@ -60,6 +63,12 @@ public class playerstats : MonoBehaviour
         {
             mana = maxMana;
         }
+
+        if (godMode)
+        {
+            addHealth(10f);
+        }
+
 
     }
 

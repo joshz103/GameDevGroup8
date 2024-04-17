@@ -189,5 +189,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePopup: {fileID: 1051771099010184438}
   text: {fileID: 79799733566340453}
-  lifetime: 1
+  lifetime: 0
   playerDMG: {fileID: 0}

@@ -1316,7 +1316,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPointRange: 0
-  timeBetweenAttacks: 3.2
+  timeBetweenAttacks: 4.5
   sightRange: 100
   attackRange: 4.5
   turnSpeed: 15

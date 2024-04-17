@@ -30,6 +30,7 @@ public class EnemyWaves : MonoBehaviour
 
     Bosses
     0. Skeleton King
+    1. Dark Knight
 
     */
     public void Start()
@@ -69,6 +70,10 @@ public class EnemyWaves : MonoBehaviour
         if (waveNum > 10 && waveNum < 20)
         {
             spawnWaveRound10to19();
+        }
+        if (waveNum == 20)
+        {
+            spawnBossRound20();
         }
 
     }
@@ -154,6 +159,11 @@ public class EnemyWaves : MonoBehaviour
                 Template6();
                 break;
         }
+    }
+
+    public void spawnBossRound20()
+    {
+        BossTemplate2();
     }
 
     public void spawnWaveRound20to29()
@@ -283,6 +293,16 @@ public class EnemyWaves : MonoBehaviour
         {
             int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
             Instantiate(bosses[0], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
+            enemiesAlive++;
+        }
+    }
+
+    private void BossTemplate2()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            int randomSpawnNum = UnityEngine.Random.Range(0, enemySpawnpoint.Length);
+            Instantiate(bosses[1], enemySpawnpoint[randomSpawnNum].transform.position, enemySpawnpoint[randomSpawnNum].transform.rotation);
             enemiesAlive++;
         }
     }

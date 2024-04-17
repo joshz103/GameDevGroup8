@@ -42,8 +42,5 @@ public class EnemyAttackHitboxBoss : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         hitbox.GetComponent<BoxCollider>().enabled = false;
     }
-
-
-
 }
 

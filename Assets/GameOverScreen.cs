@@ -41,6 +41,9 @@ public class gameoverManager : MonoBehaviour
         gameOverBackground.SetActive(true);
         float enemiesKilled = stats.getEnemiesKilled();
         updateText(enemiesKilled);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void updateText(float enemiesKilled)
