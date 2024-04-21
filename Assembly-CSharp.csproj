@@ -89,6 +89,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\HUD\BuyOffense.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\player\behaviors\PlayerController.cs" />
     <Compile Include="Assets\collectables\offense_up\offense_up_collectable.cs" />
     <Compile Include="Assets\EnemyPushbackBoss.cs" />

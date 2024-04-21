@@ -404,6 +404,7 @@
 "Assets/HUD/ManaBar.cs"
 "Assets/HUD/ShopMenu.cs"
 "Assets/HUD/TestSpawnText.cs"
+"Assets/MainMenu.cs"
 "Assets/objects/damage_sphere/damage_sphere.cs"
 "Assets/objects/damage_sphere/damage_sphere_player.cs"
 "Assets/player/behaviors/PlayerAttackDamage.cs"
