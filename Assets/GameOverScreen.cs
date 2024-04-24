@@ -41,7 +41,7 @@ public class gameoverManager : MonoBehaviour
         gameOverBackground.SetActive(true);
         float enemiesKilled = stats.getEnemiesKilled();
         updateText(enemiesKilled);
-
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -57,10 +57,10 @@ public class gameoverManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Quit()
+    public void BackToTitle()
     {
-        Debug.Log("Quitting...");
-        Application.Quit();
+        Debug.Log("Going back to title...");
+        SceneManager.LoadScene("MainMenu");
     }
 }
 
