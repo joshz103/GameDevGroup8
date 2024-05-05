@@ -36,18 +36,28 @@ public class WaveCountdownText : MonoBehaviour
 
     public IEnumerator OneSecCooldownUpdateTxt()
     {
-        for (int i = countdownNum; i > 0; i--)
+        if (enemyWaveSpawner.GetComponent<EnemyWaves>().getWaveNum() != 21)
         {
-            yield return new WaitForSeconds(1f);
-            countdownNum--;
-            waveCountdownText.GetComponent<TextMeshProUGUI>().text = nextWaveTxt + countdownNum;
+            for (int i = countdownNum; i > 0; i--)
+            {
+                yield return new WaitForSeconds(1f);
+                countdownNum--;
+                waveCountdownText.GetComponent<TextMeshProUGUI>().text = nextWaveTxt + countdownNum;
+            }
+            if (hasSpawned == false)
+            {
+                hasSpawned = true;
+                waveCountdownText.GetComponent<TextMeshProUGUI>().text = "";
+                enemyWaveSpawner.GetComponent<EnemyWaves>().startWave();
+            }
         }
-        if (hasSpawned == false)
+        else
         {
-            hasSpawned = true;
-            waveCountdownText.GetComponent<TextMeshProUGUI>().text = "";
+            yield return new WaitForSeconds(0.01f);
             enemyWaveSpawner.GetComponent<EnemyWaves>().startWave();
         }
+
+        
     }
 
 

@@ -118,7 +118,7 @@ public class EnemyBehaviorBoss : MonoBehaviour
                 }
             }
 
-            if (playerInSightRange && playerInAttackRange)
+            if (playerInSightRange && playerInAttackRange && (stats.getCurrentHealth() > 0))
             {
                 Attacking();
             }

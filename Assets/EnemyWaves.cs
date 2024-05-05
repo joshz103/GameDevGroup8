@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyWaves : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemyWaves : MonoBehaviour
     public GameObject[] bosses;
 
     public GameObject[] enemySpawnpoint;
+
+    public GameObject winScreen;
 
     public int enemiesAlive;
 
@@ -51,6 +54,7 @@ public class EnemyWaves : MonoBehaviour
             waveNum++;
             waveCountdownText.resetSpawning();
             waveCounterHUDObj.updateWaveCounter();
+
             StartCoroutine(startWaveCooldown());
         }
     }
@@ -75,12 +79,20 @@ public class EnemyWaves : MonoBehaviour
         {
             spawnBossRound20();
         }
+        if (waveNum > 20)
+        {
+            StartWinScreen();
+        }
 
     }
 
     public string getWaveNumStr()
     {
         return waveNum.ToString();
+    }
+    public int getWaveNum()
+    {
+        return waveNum;
     }
 
     public void removeEnemyCount()
@@ -164,6 +176,19 @@ public class EnemyWaves : MonoBehaviour
     public void spawnBossRound20()
     {
         BossTemplate2();
+    }
+
+    public void StartWinScreen()
+    {
+        winScreen.SetActive(true);
+        StartCoroutine(ReturnToTitle());
+    }
+
+    IEnumerator ReturnToTitle()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
+
     }
 
     public void spawnWaveRound20to29()

@@ -29,6 +29,7 @@ public class PlayerSounds : MonoBehaviour
 
         AudioClip clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
         audioSource1.pitch = (Random.Range(0.8f,1.2f));
+        audioSource1.volume = 0.4f;
         audioSource1.PlayOneShot(clip);
     }
 

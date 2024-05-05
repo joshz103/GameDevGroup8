@@ -21,12 +21,6 @@ public class EnemyBehavior : MonoBehaviour
 
     private playerstats stats;
 
-    //memes
-    [SerializeField] private AudioSource audioSource1;
-    [SerializeField] AudioClip griddySound;
-    bool hasPlayedGriddy = false;
-    bool griddyEnabled = false;
-
     public EnemyAttackHitbox attackHitbox;
 
     public NavMeshAgent agent;
@@ -133,7 +127,7 @@ public class EnemyBehavior : MonoBehaviour
 
             if(!firesInsteadOfAttack)
             {
-                if (playerInSightRange && playerInAttackRange)
+                if (playerInSightRange && playerInAttackRange && (stats.getCurrentHealth() > 0))
                 {
                     Attacking();
                     //animator.SetBool("isAttacking", true);
@@ -141,32 +135,13 @@ public class EnemyBehavior : MonoBehaviour
                 }
             }
 
-            if(firesInsteadOfAttack)
+            if(firesInsteadOfAttack && (stats.getCurrentHealth() > 0))
             {
                 if(playerInSightRange && playerInAttackRange)
                 {
                     Firing();
                 }
             }
-        }
-
-        if (griddyEnabled)
-        {
-            if (stats.getCurrentHealth() <= 0)
-            {
-                animator.SetBool("isGriddy", true);
-
-                if (hasPlayedGriddy == false)
-                {
-                    hasPlayedGriddy = true;
-                    AudioClip clip = griddySound;
-                    audioSource1.Play();
-                }
-            }
-        
-
-
-            
         }
 
 
